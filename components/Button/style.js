@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {palette} from '../../styles/Common.styles';
 
 const style = StyleSheet.create({
     circleButton: {
@@ -7,7 +8,7 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 25,
-        backgroundColor: '#727079',
+        backgroundColor: palette.med_grey,
         margin: 5,
     },
     squareButton: {
@@ -15,12 +16,12 @@ const style = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#727079',
+        backgroundColor: palette.med_grey,
         borderRadius: 8,
         margin: 5,
     },
     pillButton: {
-        backgroundColor: '#727079',
+        backgroundColor: palette.med_grey,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,

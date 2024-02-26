@@ -1,13 +1,13 @@
 import {StyleSheet} from 'react-native';
+import {palette} from '../../styles/Common.styles';
 
 const style = StyleSheet.create({
   homeContainer: {
     flex: 1,
     justifyContent: 'start',
     alignItems: 'center',
-    backgroundColor: '#f5fcff',
     flexDirection: 'column',
-    backgroundColor: '#FDF8EF',
+    backgroundColor: palette.white,
   },
   homeTitleContainer: {
     paddingHorizontal: 62,
