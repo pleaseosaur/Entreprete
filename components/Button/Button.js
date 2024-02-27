@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableWithoutFeedback} from 'react-native';
-import { ButtonText } from '../Text';
+import {ButtonText} from '../Text';
 import styles from './style';
 
 /**
@@ -27,7 +27,7 @@ const RoundedButton = () => {
 const CircleButton = ({text, handler, style, ...rest}) => {
   return (
     <View style={[styles.circleButton, style]} {...rest}>
-      <TouchableWithoutFeedback  onPress={handler}>
+      <TouchableWithoutFeedback onPress={handler}>
         <ButtonText style={[style]}>{text}</ButtonText>
       </TouchableWithoutFeedback>
     </View>
@@ -37,22 +37,25 @@ const CircleButton = ({text, handler, style, ...rest}) => {
 const SquareButton = ({text, handler, style, ...rest}) => {
   return (
     <View style={[styles.squareButton, style]} {...rest}>
-      <TouchableWithoutFeedback  onPress={handler}>
+      <TouchableWithoutFeedback onPress={handler}>
         <ButtonText style={[style]}>{text}</ButtonText>
       </TouchableWithoutFeedback>
     </View>
   );
 };
 
-const PillButton = ({text, handler, style, ...rest}) => {
+const PillButton = ({text, handler, style, icon, ...rest}) => {
   return (
     <View style={[styles.pillButton, style]} {...rest}>
-      <TouchableWithoutFeedback  onPress={handler}>
-        <ButtonText style={[style]}>{text}</ButtonText>
+      <TouchableWithoutFeedback onPress={handler}>
+        <ButtonText style={[style]}>
+          {icon}
+          {text}
+        </ButtonText>
       </TouchableWithoutFeedback>
     </View>
   );
 };
 
-export { RoundedButton, CircleButton, SquareButton, PillButton };
+export {RoundedButton, CircleButton, SquareButton, PillButton};
 export default RoundedButton;

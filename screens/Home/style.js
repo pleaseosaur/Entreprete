@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {palette} from '../../styles/Common.styles';
+import palette from '../../styles/Common.styles';
 
 const style = StyleSheet.create({
   homeContainer: {
@@ -20,9 +20,15 @@ const style = StyleSheet.create({
     fontSize: 48,
   },
   homeIconContainer: {
-    // backgroundColor: 'red',
-    paddingVertical: 30,
-    paddingHorizontal: 62,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  homeNavigationContainer: {
+    flex: 2,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
   },
 });
 
