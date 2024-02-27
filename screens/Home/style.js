@@ -23,6 +23,7 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   homeNavigationContainer: {
     flex: 2,
