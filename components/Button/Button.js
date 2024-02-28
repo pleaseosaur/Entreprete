@@ -6,12 +6,13 @@ import styles from './style';
 /**
  * example usage:
   <View>
+    <CircleButton icon={<DoubleSoup/>}></CircleButton>
     <CircleButton style={{backgroundColor: "red"}}></CircleButton>
-    <SquareButton text={'%'}></SquareButton>
+    <SquareButton icon={<DoubleSoup/>}></SquareButton>
     <PillButton text={'Button'}></PillButton>
     <PillButton text={'Long Name Button'}></PillButton>
     <View style={{width: 125}}>
-      <PillButton text={'Button'} handler={test}></PillButton>
+      <PillButton text={'Button'}></PillButton>
     </View>
   </View>
  */
@@ -24,21 +25,21 @@ const RoundedButton = () => {
   );
 };
 
-const CircleButton = ({text, handler, style, ...rest}) => {
+const CircleButton = ({icon, handler, style, ...rest}) => {
   return (
     <View style={[styles.circleButton, style]} {...rest}>
       <TouchableWithoutFeedback onPress={handler}>
-        <ButtonText style={[style]}>{text}</ButtonText>
+        <View>{icon}</View>
       </TouchableWithoutFeedback>
     </View>
   );
 };
 
-const SquareButton = ({text, handler, style, ...rest}) => {
+const SquareButton = ({icon, handler, style, ...rest}) => {
   return (
     <View style={[styles.squareButton, style]} {...rest}>
       <TouchableWithoutFeedback onPress={handler}>
-        <ButtonText style={[style]}>{text}</ButtonText>
+        <View>{icon}</View>
       </TouchableWithoutFeedback>
     </View>
   );
@@ -48,10 +49,12 @@ const PillButton = ({text, handler, style, icon, ...rest}) => {
   return (
     <View style={[styles.pillButton, style]} {...rest}>
       <TouchableWithoutFeedback onPress={handler}>
-        <ButtonText style={[style]}>
+        <View style={styles.subContainer}>
           {icon}
-          {text}
-        </ButtonText>
+          <ButtonText style={[style]}>
+            {text}
+          </ButtonText>
+        </View>
       </TouchableWithoutFeedback>
     </View>
   );

@@ -30,6 +30,10 @@ const style = StyleSheet.create({
     borderRadius: 50,
     margin: 5,
   },
+  subContainer: {
+    flexDirection: 'row', 
+    alignItems: 'center'
+  }
 });
 
 export default style;

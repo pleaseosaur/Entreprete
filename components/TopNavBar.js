@@ -5,15 +5,15 @@ import { ScreenTitleText } from './Text';
 
 /*
 Usage Example: 
-    <TopNavBar leftIcon='*' title='Recipe Book' hide='true'></TopNavBar>
+    <TopNavBar leftIcon={<DoubleSoup/>} title='Recipe Book' hide='true'></TopNavBar>
  */
 
 const TopNavBar = ({leftIcon, rightIcon, title, hide, style, ...rest}) => {
     return (
         <View style={[styles.container, style]} {...rest}>
-            <CircleButton text={leftIcon}></CircleButton>
+            <CircleButton icon={leftIcon}></CircleButton>
             <ScreenTitleText>{title}</ScreenTitleText>
-            <CircleButton text={rightIcon} style={hide ? styles.hideButton : styles.showButton}></CircleButton>
+            <CircleButton icon={rightIcon} style={hide ? styles.hideButton : styles.showButton}></CircleButton>
         </View>
     );
   };
