@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, View, Text, KeyboardAvoidingView} from 'react-native';
 import {HomeTitleText} from '../../components/Text';
 import {PillButton} from '../../components/Button/Button';
+import {SquareButton} from "../../components/Button/Button";
 import {
   BookOpened,
   DoubleSoup,
@@ -10,6 +11,7 @@ import {
 } from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
+import BaseScreen from '../BaseScreen/BaseScreen';
 
 const Home = ({navigation}) => {
   const navigateToRecipeBook = () => {
@@ -19,6 +21,10 @@ const Home = ({navigation}) => {
     navigation.navigate('Collections');
   };
 
+  /*
+  * refactor to incorporate BaseScreen wrapper for common screen structure
+  * may need to refactor the Home/style.js to move common styles to BaseScreen/style.js
+  */
   return (
     <SafeAreaView style={style.homeContainer}>
       <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
