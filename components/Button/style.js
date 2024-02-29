@@ -31,9 +31,9 @@ const style = StyleSheet.create({
     margin: 5,
   },
   subContainer: {
-    flexDirection: 'row', 
-    alignItems: 'center'
-  }
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });
 
 export default style;

@@ -4,18 +4,39 @@ import palette from '../../styles/Common.styles'; // Import the common styles
 const style = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: palette.cream, // Use a common background color
+    marginHorizontal: '2%',
   },
-  header: {
-    height: 60,
-    alignItems: 'center',
+  topContainer: {
+    flexDirection: 'row',
+    marginBottom: '3%',
+  },
+  topGoBackContainer: {
+    flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: palette.cream, // Define a common header background color
+    alignItems: 'center',
+    width: 50,
+    height: 50,
+    margin: 5,
   },
-  headerText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    // Add text styling here
+  topTitleContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  topTitle: {
+    fontSize: 32,
+    fontWeight: 700,
+    fontFamily: 'Nunito-Bold',
+    color: palette.light_grey,
+  },
+  EditMessageContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 50,
+    margin: 5,
   },
 });
 
