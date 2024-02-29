@@ -1,13 +1,14 @@
 import React from 'react';
-import {SafeAreaView, View, Text, KeyboardAvoidingView} from 'react-native';
+import {SafeAreaView, View, Image, KeyboardAvoidingView} from 'react-native';
 import {HomeTitleText} from '../../components/Text';
 import {PillButton} from '../../components/Button/Button';
-import {SquareButton} from "../../components/Button/Button";
+import {SquareButton} from '../../components/Button/Button';
 import {
   BookOpened,
   DoubleSoup,
   Calendar,
   ClipBoardList,
+  PlusCircle,
 } from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
@@ -22,9 +23,9 @@ const Home = ({navigation}) => {
   };
 
   /*
-  * refactor to incorporate BaseScreen wrapper for common screen structure
-  * may need to refactor the Home/style.js to move common styles to BaseScreen/style.js
-  */
+   * refactor to incorporate BaseScreen wrapper for common screen structure
+   * may need to refactor the Home/style.js to move common styles to BaseScreen/style.js
+   */
   return (
     <SafeAreaView style={style.homeContainer}>
       <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
@@ -34,7 +35,7 @@ const Home = ({navigation}) => {
         </View>
         {/* Home Page Icon */}
         <View style={style.homeIconContainer}>
-          <Text>icon</Text>
+          <Image source={require('../../assets/icon.png')} />
         </View>
         {/* Home Page Navigation */}
         <View style={style.homeNavigationContainer}>
@@ -58,6 +59,9 @@ const Home = ({navigation}) => {
               icon={<ClipBoardList />}
               text={' Meal Plans'}></PillButton>
           </View>
+        </View>
+        <View>
+          <SquareButton icon={<PlusCircle />}></SquareButton>
         </View>
         {/* Search bar */}
         <View>

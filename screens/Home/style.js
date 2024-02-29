@@ -26,10 +26,11 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   homeNavigationContainer: {
-    flex: 2,
+    flex: 1.5,
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
+    marginBottom: '10%',
   },
 });
 

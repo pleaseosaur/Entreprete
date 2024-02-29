@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View, Text, TextInput} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  TouchableWithoutFeedback,
+  TextInput,
+  Text,
+} from 'react-native';
+import {Search} from '../../components/Icons/Icons';
 import styles from './style';
 
 const SearchBar = () => {
@@ -7,13 +14,18 @@ const SearchBar = () => {
 
   return (
     <SafeAreaView>
-      <View>
+      <View style={styles.searchBarContainer}>
         <TextInput
           style={styles.input}
           value={search}
           placeholder="Search for recipes"
           keyboardType="default"
         />
+        <TouchableWithoutFeedback>
+          <View>
+            <Search />
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     </SafeAreaView>
   );
