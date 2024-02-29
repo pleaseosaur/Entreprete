@@ -15,6 +15,11 @@ const style = StyleSheet.create({
     width: 50,
     margin: 5,
   },
+  emptyRecipes: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default style;

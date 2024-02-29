@@ -22,10 +22,6 @@ const Home = ({navigation}) => {
     navigation.navigate('Collections');
   };
 
-  /*
-   * refactor to incorporate BaseScreen wrapper for common screen structure
-   * may need to refactor the Home/style.js to move common styles to BaseScreen/style.js
-   */
   return (
     <SafeAreaView style={style.homeContainer}>
       <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>

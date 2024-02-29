@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, ScrollView, Text} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
 import RecipeItem from '../../components/RecipeItem/RecipeItem';
 import {SquareButton} from '../../components/Button/Button';
@@ -7,68 +7,76 @@ import {PlusCircle, Home} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 
-const RecipeBook = ({navigation}) => {
+const RecipeBook = ({navigation, route}) => {
   const goBack = () => {
     navigation.goBack();
   };
-  const testRecipes = [
-    {
-      name: 'recipe1',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-    {
-      name: 'recipe2',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-    {
-      name: 'recipe3',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-    {
-      name: 'recipe4',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-    {
-      name: 'recipe5',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-    {
-      name: 'recipe6',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-    {
-      name: 'recipe7',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-    {
-      name: 'recipe8',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-    {
-      name: 'recipe9',
-      ingredients: ['ingredient1', 'ingredient2'],
-      instructions: ['direction1', 'direction2'],
-    },
-  ];
+  const {recipes = []} = route.params || [];
+  // const testRecipes = [
+  //   {
+  //     name: 'recipe1',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  //   {
+  //     name: 'recipe2',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  //   {
+  //     name: 'recipe3',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  //   {
+  //     name: 'recipe4',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  //   {
+  //     name: 'recipe5',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  //   {
+  //     name: 'recipe6',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  //   {
+  //     name: 'recipe7',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  //   {
+  //     name: 'recipe8',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  //   {
+  //     name: 'recipe9',
+  //     ingredients: ['ingredient1', 'ingredient2'],
+  //     instructions: ['direction1', 'direction2'],
+  //   },
+  // ];
   return (
     <BaseScreen
       title={'Recipe Book'}
       canEdit={false}
       canGoBack={true}
       goBack={goBack}>
-      <ScrollView style={style.scrollContainer}>
-        {testRecipes.map((recipe, index) => {
-          return <RecipeItem recipe={recipe} key={index} />;
-        })}
-      </ScrollView>
+      {recipes.length === 0 ? (
+        <View style={style.emptyRecipes}>
+          <Text>No recipes found</Text>
+        </View>
+      ) : (
+        <ScrollView style={style.scrollContainer}>
+          {recipes.map((recipe, index) => {
+            return <RecipeItem recipe={recipe} key={index} />;
+          })}
+        </ScrollView>
+      )}
+
       <View style={style.recipeSearchContainer}>
         <View style={style.buttonsContainer}>
           <View>

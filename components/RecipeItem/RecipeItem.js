@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import style from './style.js';
 import {PlaceHolder, Linear} from '../Icons/Icons';
 
-const RecipeItem = ({navigation, recipe}) => {
+const RecipeItem = ({navigation, recipe, onPress}) => {
   return (
     <View style={style.recipeItemContainer}>
       <View style={style.imagePlaceHolderContainer}>
@@ -13,7 +13,9 @@ const RecipeItem = ({navigation, recipe}) => {
         <Text style={style.recipeName}>{recipe ? recipe.name : 'test'}</Text>
       </View>
       <View>
-        <Linear />
+        <Pressable onPress={onPress}>
+          <Linear />
+        </Pressable>
       </View>
     </View>
   );
