@@ -6,7 +6,7 @@ import {
   TextInput,
   Text,
 } from 'react-native';
-import {Search} from '../../components/Icons/Icons';
+import {Search} from '../Icons/Icons';
 import styles from './style';
 
 const SearchBar = () => {
