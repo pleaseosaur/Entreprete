@@ -4,7 +4,11 @@ import style from './style.js';
 import {PlaceHolder, Linear} from '../Icons/Icons';
 
 const RecipeItem = ({navigation, recipe, onPress}) => {
-  return (
+    const navigateToRecipe = recipes => {
+        navigation.navigate('RecipeBook', {recipes: recipes});
+    }
+
+    return (
     <View style={style.recipeItemContainer}>
       <View style={style.imagePlaceHolderContainer}>
         <PlaceHolder />
@@ -18,7 +22,7 @@ const RecipeItem = ({navigation, recipe, onPress}) => {
         </Pressable>
       </View>
     </View>
-  );
+    );
 };
 
 export default RecipeItem;
