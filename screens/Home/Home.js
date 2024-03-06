@@ -21,6 +21,9 @@ const Home = ({navigation}) => {
   const navigateToCollections = () => {
     navigation.navigate('Collections');
   };
+  const navigateToCalendar = () => {
+    navigation.navigate('Calendar');
+  }
 
   return (
     <SafeAreaView style={style.homeContainer}>
@@ -48,7 +51,7 @@ const Home = ({navigation}) => {
               text={'  Collections'}></PillButton>
           </View>
           <View>
-            <PillButton icon={<Calendar />} text={'    Calendar'}></PillButton>
+            <PillButton handler={navigateToCalendar} icon={<Calendar />} text={'    Calendar'}></PillButton>
           </View>
           <View>
             <PillButton

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
-import { Calendar } from "../../components/Icons/Icons";
+import { Calendar } from 'react-native-calendars';
 import style from './style';
 
 const CalendarScreen = ({navigation}) => {
@@ -13,7 +13,7 @@ const CalendarScreen = ({navigation}) => {
         <BaseScreen title="Calendar" canGoBack={true} goBack = {() => navigation.goBack()} >
             <View style={style.calendarContainer}>
                 <Calendar
-                dayPress={dayPress}
+                onDayPress={dayPress}
                 />
             </View>
         </BaseScreen>

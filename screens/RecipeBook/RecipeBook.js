@@ -12,53 +12,6 @@ const RecipeBook = ({navigation, route}) => {
     navigation.goBack();
   };
   const {recipes = []} = route.params || [];
-  // const testRecipes = [
-  //   {
-  //     name: 'recipe1',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  //   {
-  //     name: 'recipe2',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  //   {
-  //     name: 'recipe3',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  //   {
-  //     name: 'recipe4',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  //   {
-  //     name: 'recipe5',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  //   {
-  //     name: 'recipe6',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  //   {
-  //     name: 'recipe7',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  //   {
-  //     name: 'recipe8',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  //   {
-  //     name: 'recipe9',
-  //     ingredients: ['ingredient1', 'ingredient2'],
-  //     instructions: ['direction1', 'direction2'],
-  //   },
-  // ];
   return (
     <BaseScreen
       title={'Recipe Book'}
