@@ -18,47 +18,47 @@ const Collections = ({navigation}) => {
   const testRecipes = [
     {
       name: 'recipe1',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
     {
       name: 'recipe2',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
     {
       name: 'recipe3',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
     {
       name: 'recipe4',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
     {
       name: 'recipe5',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
     {
       name: 'recipe6',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
     {
       name: 'recipe7',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
     {
       name: 'recipe8',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
     {
       name: 'recipe9',
-      ingredients: ['ingredient1', 'ingredient2'],
+      ingredients: [{amount: "4tbsp", ingredients: "ingredient1"}, {amount: "1handful", ingredients: "ingredient2  "}, {amount: "10cups", ingredients: "ingredient3"}],
       instructions: ['direction1', 'direction2'],
     },
   ];

@@ -5,8 +5,9 @@ import { Calendar } from 'react-native-calendars';
 import style from './style';
 
 const CalendarScreen = ({navigation}) => {
-    const dayPress = (day) => {
-        navigation.navigate('Day', {date: day.dateString});
+    const dayPress = () => {
+        console.log('Day Pressed');
+        navigation.navigate('Day');
     };
 
     return (

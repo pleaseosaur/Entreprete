@@ -11,7 +11,11 @@ const RecipeBook = ({navigation, route}) => {
   const goBack = () => {
     navigation.goBack();
   };
+  const navigateToRecipePage = recipes => {
+    navigation.navigate('RecipePage', {recipes: recipes});
+  };
   const {recipes = []} = route.params || [];
+
   return (
     <BaseScreen
       title={'Recipe Book'}
@@ -25,7 +29,13 @@ const RecipeBook = ({navigation, route}) => {
       ) : (
         <ScrollView style={style.scrollContainer}>
           {recipes.map((recipe, index) => {
-            return <RecipeItem recipe={recipe} key={index} />;
+            return (
+              <RecipeItem
+                recipe={recipe}
+                key={index}
+                onPress={() => navigateToRecipePage(recipe)}
+              />
+            );
           })}
         </ScrollView>
       )}

@@ -6,9 +6,9 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: palette.cream, // Use a common background color
-    marginHorizontal: '2%',
   },
   topContainer: {
+    marginHorizontal: '2%',
     flexDirection: 'row',
     marginBottom: '3%',
   },
