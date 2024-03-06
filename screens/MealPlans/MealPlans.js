@@ -21,3 +21,5 @@ const MealPlans = ({navigation, mealPlanName}) => {
         </BaseScreen>
     );
 }
+
+export default MealPlans;

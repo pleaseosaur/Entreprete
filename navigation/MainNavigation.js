@@ -4,21 +4,23 @@ import RecipeBook from '../screens/RecipeBook/RecipeBook';
 import Collections from '../screens/Collections/Collections';
 import CalendarScreen from "../screens/Calendar/Calendar";
 import RecipePage from '../screens/RecipePage/RecipePage';
+import MealPlans from '../screens/MealPlans/MealPlans';
 
 const Stack = createStackNavigator();
 
 const MainNavigation = () => {
-  return (
+    return (
     <Stack.Navigator
       screenOptions={{header: () => null, headerShown: false}}
       initialRouteName={'Home'}>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="RecipeBook" component={RecipeBook} />
-      <Stack.Screen name="Collections" component={Collections} />
-      <Stack.Screen name={'Calendar'} component={CalendarScreen} />
-      <Stack.Screen name={'RecipePage'} component={RecipePage} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="RecipeBook" component={RecipeBook} />
+        <Stack.Screen name="Collections" component={Collections} />
+        <Stack.Screen name={'Calendar'} component={CalendarScreen} />
+        <Stack.Screen name={'RecipePage'} component={RecipePage} />
+        <Stack.Screen name={'MealPlan'} component={MealPlans} />
     </Stack.Navigator>
-  );
+    );
 };
 
 export default MainNavigation;
