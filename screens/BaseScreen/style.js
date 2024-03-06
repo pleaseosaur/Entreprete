@@ -5,7 +5,7 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: palette.cream, // Use a common background color
+    backgroundColor: palette.white, // Use a common background color
   },
   topContainer: {
     marginHorizontal: '2%',
