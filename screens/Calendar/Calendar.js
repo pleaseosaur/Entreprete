@@ -6,6 +6,7 @@ import style from './style';
 
 const CalendarScreen = ({navigation}) => {
     const dayPress = () => {
+        console.log('Day Pressed');
         navigation.navigate('Day');
     };
 
