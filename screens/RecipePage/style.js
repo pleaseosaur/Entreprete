@@ -10,7 +10,7 @@ const style = StyleSheet.create({
   itemTitle: {
     color: '#48474B',
     fontSize: 22,
-    fontWeight: 700,
+    fontWeight: "700",
     fontFamily: 'Nunito-Bold',
   },
   ingredient: {
@@ -28,14 +28,14 @@ const style = StyleSheet.create({
   ingredientName: {
     color: '#000',
     fontSize: 16,
-    fontWeight: 700,
+    fontWeight: "700",
     marginTop: '2.5%',
   },
   ingredientAmount: {
     color: palette.med_grey,
     fontFamily: 'Nunito-Bold',
     fontSize: 16,
-    fontWeight: 700,
+    fontWeight: "700",
   },
   instructionsContainer: {
     flexDirection: 'column',

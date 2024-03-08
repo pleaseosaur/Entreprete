@@ -27,7 +27,7 @@ const style = StyleSheet.create({
   },
   topTitle: {
     fontSize: 32,
-    fontWeight: 700,
+    fontWeight: "700",
     fontFamily: 'Nunito-Bold',
     color: palette.light_grey,
   },

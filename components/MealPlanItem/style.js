@@ -23,7 +23,7 @@ const style = StyleSheet.create({
     mealPlanName: {
         fontFamily: 'Nunito',
         fontSize: 30,
-        fontWeight: 700,
+        fontWeight: "700",
     },
 });
 
