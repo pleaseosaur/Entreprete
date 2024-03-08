@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
 import ListItem from '../../components/ListItem/ListItem';
@@ -8,19 +8,8 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 
 const RecipeBook = ({navigation, route}) => {
-  const goBack = () => {
-    navigation.goBack();
-  };
-  const navigateToRecipePage = recipes => {
-    navigation.navigate('RecipePage', {recipes: recipes});
-  };
-
-  const goHome = () => {
-    navigation.navigate('Home');
-  };
-
   // const {recipes = []} = route.params || [];
-  const recipes = [
+  const testRecipes = [
     {
       name: 'Recipe',
       ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
@@ -81,6 +70,27 @@ const RecipeBook = ({navigation, route}) => {
     instructions: ['direction 1', 'direction 2'],
   }];
 
+  const [recipes, setRecipes] = useState(testRecipes);
+
+  const goBack = () => {
+    navigation.goBack();
+  };
+  const navigateToRecipePage = recipes => {
+    navigation.navigate('RecipePage', {recipes: recipes});
+  };
+
+  const goHome = () => {
+    navigation.navigate('Home');
+  };
+
+  const deleteRecipe = (index) => {
+    setRecipes((prevRecipes) => {
+      const newRecipes = prevRecipes.filter((_, i) => i !== index);
+      return newRecipes;
+    })
+  };
+
+
   return (
     <BaseScreen
       title={'Recipe Book'}
@@ -100,6 +110,7 @@ const RecipeBook = ({navigation, route}) => {
                 recipe={recipe}
                 key={index}
                 onPress={() => navigateToRecipePage(recipe)}
+                swipeHandler={() => deleteRecipe(index)}
               />
             );
           })}
