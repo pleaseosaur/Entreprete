@@ -1,12 +1,11 @@
 import { Text as DefaultText } from 'react-native';
+import palette from '../styles/Common.styles';
 
 const Text = ({ style, ...rest }) => {
-//   const { colors } = useThemeColors();
-
   return (
     <DefaultText
       style={[
-        { color: '#48474B', fontFamily: 'NotoSans-Regular', fontSize: 14 },
+        { color: palette.dark_grey, fontFamily: 'NotoSans-Regular', fontSize: 14 },
         style,
       ]}
       {...rest}
@@ -15,12 +14,10 @@ const Text = ({ style, ...rest }) => {
 };
 
 const ListText = ({ style, ...rest }) => {
-    //   const { colors } = useThemeColors();
-    
       return (
         <DefaultText
           style={[
-            { color: '#48474B', fontFamily: 'NotoSans-Regular', fontSize: 14 , lineHeight: 26},
+            { color: palette.dark_grey, fontFamily: 'NotoSans-Regular', fontSize: 14 , lineHeight: 26},
             style,
           ]}
           {...rest}
@@ -29,8 +26,6 @@ const ListText = ({ style, ...rest }) => {
     };
 
 const ButtonText = ({ style, ...rest }) => {
-//   const { colors } = useThemeColors();
-
   return (
     <DefaultText
       style={[
@@ -43,12 +38,10 @@ const ButtonText = ({ style, ...rest }) => {
 };
 
 const ScreenTitleText = ({ style, ...rest }) => {
-    //   const { colors } = useThemeColors();
-    
       return (
         <DefaultText
           style={[
-            { color: '#9C99A6', fontFamily: 'Nunito-Bold', fontSize: 32 },
+            { color: palette.light_grey, fontFamily: 'Nunito-Bold', fontSize: 32 },
             style,
           ]}
           {...rest}
@@ -57,12 +50,10 @@ const ScreenTitleText = ({ style, ...rest }) => {
     };
 
 const HomeTitleText = ({ style, ...rest }) => {
-    //   const { colors } = useThemeColors();
-    
         return (
         <DefaultText
             style={[
-            { color: '#48474B', fontFamily: 'Nunito-Black', fontSize: 48 },
+            { color: palette.dark_grey, fontFamily: 'Nunito-Black', fontSize: 48 },
             style,
             ]}
             {...rest}
@@ -71,12 +62,10 @@ const HomeTitleText = ({ style, ...rest }) => {
     };
 
 const HeaderText = ({ style, ...rest }) => {
-    //   const { colors } = useThemeColors();
-    
         return (
         <DefaultText
             style={[
-            { color: '#48474B', fontFamily: 'Nunito-Bold', fontSize: 20 },
+            { color: palette.dark_grey, fontFamily: 'Nunito-Bold', fontSize: 20 },
             style,
             ]}
             {...rest}
