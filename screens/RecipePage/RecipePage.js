@@ -8,6 +8,10 @@ const RecipePage = ({navigation, route}) => {
   const goBack = () => {
     navigation.goBack();
   };
+  
+  const goHome = () => {
+    navigation.navigate('Home');
+  };
 
   const recipeData = route.params || null;
   const recipeName = recipeData.recipes.name;
@@ -59,6 +63,9 @@ const RecipePage = ({navigation, route}) => {
             })}
           </View>
         </View>
+      </View>
+      <View style={style.buttonsContainer}>
+          <SquareButton handler={goHome} icon={<Home />}></SquareButton>
       </View>
     </BaseScreen>
   );

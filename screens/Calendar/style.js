@@ -7,6 +7,11 @@ const style = StyleSheet.create({
         justifyContent: "start",
         backgroundColor: palette.white,
     },
+    buttonsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 10,
+    }
 });
 
 export default style;

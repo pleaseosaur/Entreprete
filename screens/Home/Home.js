@@ -23,7 +23,10 @@ const Home = ({navigation}) => {
   };
   const navigateToCalendar = () => {
     navigation.navigate('Calendar');
-  }
+  };
+  const navigateToMealPlan = () => {
+    navigation.navigate('MealPlan');
+  };
 
   return (
     <SafeAreaView style={style.homeContainer}>
@@ -55,6 +58,7 @@ const Home = ({navigation}) => {
           </View>
           <View>
             <PillButton
+              handler={navigateToMealPlan}
               icon={<ClipBoardList />}
               text={' Meal Plans'}></PillButton>
           </View>

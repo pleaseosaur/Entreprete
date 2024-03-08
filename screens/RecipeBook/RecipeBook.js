@@ -14,6 +14,11 @@ const RecipeBook = ({navigation, route}) => {
   const navigateToRecipePage = recipes => {
     navigation.navigate('RecipePage', {recipes: recipes});
   };
+
+  const goHome = () => {
+    navigation.navigate('Home');
+  };
+
   const {recipes = []} = route.params || [];
 
   return (
@@ -46,7 +51,7 @@ const RecipeBook = ({navigation, route}) => {
             <SquareButton icon={<PlusCircle />}></SquareButton>
           </View>
           <View>
-            <SquareButton icon={<Home />}></SquareButton>
+            <SquareButton handler={goHome} icon={<Home />}></SquareButton>
           </View>
           <View style={style.buttonPlaceHolder}></View>
         </View>

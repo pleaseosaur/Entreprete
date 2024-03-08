@@ -49,6 +49,11 @@ const style = StyleSheet.create({
     fontSize: 16,
     color: '#000',
   },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 10,
+  },
 });
 
 export default style;

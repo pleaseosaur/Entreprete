@@ -15,6 +15,10 @@ const Collections = ({navigation}) => {
     navigation.navigate('RecipeBook', {recipes: recipes});
   };
 
+  const goHome = () => {
+    navigation.navigate('Home');
+  };
+
   const testRecipes = [
     {
       name: 'recipe1',
@@ -111,7 +115,7 @@ const Collections = ({navigation}) => {
             <SquareButton icon={<PlusCircle />}></SquareButton>
           </View>
           <View>
-            <SquareButton icon={<Home />}></SquareButton>
+            <SquareButton handler={goHome} icon={<Home />}></SquareButton>
           </View>
           <View style={style.buttonPlaceHolder}></View>
         </View>
