@@ -3,6 +3,9 @@ import {StyleSheet} from 'react-native';
 const style = StyleSheet.create({
   scrollContainer: {
     marginBottom: '5%',
+    marginTop: '5%',
+    marginLeft: '7%',
+    marginRight: '7%',
   },
   recipeSearchContainer: {
     marginHorizontal: '5%',

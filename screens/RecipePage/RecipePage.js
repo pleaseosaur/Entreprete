@@ -1,7 +1,8 @@
 import React from 'react';
-
 import {View, ScrollView, Text} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
+import {SquareButton} from '../../components/Button/Button';
+import {Home} from '../../components/Icons/Icons';
 import style from './style';
 
 const RecipePage = ({navigation, route}) => {

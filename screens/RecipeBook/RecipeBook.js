@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, ScrollView, Text} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
-import RecipeItem from '../../components/RecipeItem/RecipeItem';
+import ListItem from '../../components/ListItem/ListItem';
 import {SquareButton} from '../../components/Button/Button';
 import {PlusCircle, Home} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -19,7 +19,67 @@ const RecipeBook = ({navigation, route}) => {
     navigation.navigate('Home');
   };
 
-  const {recipes = []} = route.params || [];
+  // const {recipes = []} = route.params || [];
+  const recipes = [
+    {
+      name: 'Recipe',
+      ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+      instructions: ['direction 1', 'direction 2'],
+    },
+    {
+      name: 'Super Long Recipe Name',
+      ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+      instructions: ['direction 1', 'direction 2'],
+    },
+    {
+      name: 'Recipe',
+      ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+      instructions: ['direction 1', 'direction 2'],
+    },
+    {
+      name: 'Even Longer Super Long Recipe Name Literally So Long',
+      ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+      instructions: ['direction 1', 'direction 2'],
+    },
+    {      name: 'Recipe',
+    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+    instructions: ['direction 1', 'direction 2'],
+  },
+  {
+    name: 'Super Long Recipe Name',
+    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+    instructions: ['direction 1', 'direction 2'],
+  },
+  {
+    name: 'Recipe',
+    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+    instructions: ['direction 1', 'direction 2'],
+  },
+  {
+    name: 'Even Longer Super Long Recipe Name Literally So Long',
+    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+    instructions: ['direction 1', 'direction 2'],
+  },
+  {      
+    name: 'Recipe',
+    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+    instructions: ['direction 1', 'direction 2'],
+  },
+  {
+    name: 'Super Long Recipe Name',
+    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+    instructions: ['direction 1', 'direction 2'],
+  },
+  {
+    name: 'Recipe',
+    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+    instructions: ['direction 1', 'direction 2'],
+  },
+  {
+    name: 'Even Longer Super Long Recipe Name Literally So Long',
+    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
+    instructions: ['direction 1', 'direction 2'],
+  }];
 
   return (
     <BaseScreen
@@ -35,10 +95,12 @@ const RecipeBook = ({navigation, route}) => {
         <ScrollView style={style.scrollContainer}>
           {recipes.map((recipe, index) => {
             return (
-              <RecipeItem
+              <ListItem
+                name={recipe.name}
                 recipe={recipe}
                 key={index}
                 onPress={() => navigateToRecipePage(recipe)}
+                swipeIcon={<Home/>}
               />
             );
           })}

@@ -160,14 +160,15 @@ const PlaceHolder = props => (
 const Linear = props => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
-    width={58}
-    height={49}
+    width={props.width ? props.width : 58}
+    height={props.height ? props.height : 49}
+    viewBox="0 0 58 49"
     fill="none"
     {...props}>
     <Path
-      stroke="#727079"
+      stroke={props.color ? props.color : "#727079"}
       strokeLinecap="round"
-      strokeWidth={1.5}
+      strokeWidth={2.5}
       d="M45.691 20.417H12.529M45.691 28.583H12.529M45.691 12.25H12.529M45.691 36.75H12.529"
     />
   </Svg>
