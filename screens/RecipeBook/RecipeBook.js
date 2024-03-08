@@ -87,7 +87,7 @@ const RecipeBook = ({navigation, route}) => {
     setRecipes((prevRecipes) => {
       const newRecipes = prevRecipes.filter((_, i) => i !== index);
       return newRecipes;
-    })
+    });
   };
 
 

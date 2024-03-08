@@ -1,4 +1,5 @@
-import { Animated, View, Image, TouchableWithoutFeedback } from "react-native";
+import { useRef } from 'react';
+import { Animated, View, Image, TouchableWithoutFeedback} from "react-native";
 import { RectButton, Swipeable } from 'react-native-gesture-handler';
 import { Linear, Trash } from "../Icons/Icons";
 import { HeaderText } from "../Text";
@@ -10,6 +11,12 @@ const ListItem = ({navigation, img, name, rightIcon, style, onPress, swipeIcon, 
     const defaultImg = TestImage;
     const defaultIcon = <Linear color={palette.dark_grey} width={35} height={40}/>;
     const defaultSwipeIcon = <Trash color={palette.cream}/>;
+    const ref = useRef(null);
+
+    const deleteHandler = () => {
+      swipeHandler();
+      ref.current.close();
+    };
 
     const renderRightActions = (_, dragX) => {
         const transX = dragX.interpolate({
@@ -19,7 +26,7 @@ const ListItem = ({navigation, img, name, rightIcon, style, onPress, swipeIcon, 
         });
     
         return (
-          <RectButton style={styles.deleteButton} onPress={swipeHandler}>
+          <RectButton style={styles.deleteButton} onPress={deleteHandler}>
             <Animated.Text style={[styles.buttonText, { transform: [{ translateX: transX }] }]}>
               <View>{swipeIcon ? swipeIcon : defaultSwipeIcon}</View>
             </Animated.Text>
@@ -28,7 +35,7 @@ const ListItem = ({navigation, img, name, rightIcon, style, onPress, swipeIcon, 
     };
 
     return (
-        <Swipeable renderRightActions={renderRightActions} {...rest}>
+        <Swipeable renderRightActions={renderRightActions} ref={ref} {...rest}>
             <TouchableWithoutFeedback onPress={onPress}>
                 <View style={[styles.container, style]}>
                     <View style={[styles.subContainer]}>
