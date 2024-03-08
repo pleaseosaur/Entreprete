@@ -1,0 +1,88 @@
+{
+  "recipes": [
+      {
+        "name": "Recipe 1",
+        "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+        "instructions": ["direction 1", "direction 2"]
+      },
+      {
+        "name": "Super Long Recipe Name 2",
+        "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+        "instructions": ["direction 1", "direction 2"]
+      },
+      {
+        "name": "Recipe 3",
+        "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+        "instructions": ["direction 1", "direction 2"]
+      },
+      {
+        "name": "Even Longer Super Long Recipe Name Literally So Long 4",
+        "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+        "instructions": ["direction 1", "direction 2"]
+      },
+      {      "name": "Recipe 5",
+      "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+      "instructions": ["direction 1", "direction 2"]
+    },
+    {
+      "name": "Super Long Recipe Name 6",
+      "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+      "instructions": ["direction 1", "direction 2"]
+    },
+    {
+      "name": "Recipe 7",
+      "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+      "instructions": ["direction 1", "direction 2"]
+    },
+    {
+      "name": "Even Longer Super Long Recipe Name Literally So Long 8",
+      "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+      "instructions": ["direction 1", "direction 2"]
+    },
+    {      
+      "name": "Recipe 9",
+      "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+      "instructions": ["direction 1", "direction 2"]
+    },
+    {
+      "name": "Super Long Recipe Name 10",
+      "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+      "instructions": ["direction 1", "direction 2"]
+    },
+    {
+      "name": "Recipe 11",
+      "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+      "instructions": ["direction 1", "direction 2"]
+    },
+    {
+      "name": "Even Longer Super Long Recipe Name Literally So Long 12",
+      "ingredients": [{"amount": "4 tbsp", "ingredients": "ingredient 1"}, {"amount": "1 handful", "ingredients": "ingredient 2  "}, {"amount": "10 cups", "ingredients": "ingredient 3"}],
+      "instructions": ["direction 1", "direction 2"]
+    }],
+  "collections": [
+      {
+        "name": "Thai Cuisine",
+        "recipes": "testRecipes"
+      },
+      {
+        "name": "Italian Cuisine",
+        "recipes": "testRecipes"
+      },
+      {
+        "name": "Mexican Cuisine"
+      },
+      {
+        "name": "American Cuisine"
+      },
+      {
+        "name": "Chinese Cuisine"
+      },
+      {
+        "name": "Japanese Cuisine"
+      },
+      {
+        "name": "Korean Cuisine"
+      }
+    ]
+
+}
