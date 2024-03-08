@@ -100,7 +100,6 @@ const RecipeBook = ({navigation, route}) => {
                 recipe={recipe}
                 key={index}
                 onPress={() => navigateToRecipePage(recipe)}
-                swipeIcon={<Home/>}
               />
             );
           })}
