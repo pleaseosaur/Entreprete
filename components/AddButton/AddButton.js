@@ -20,7 +20,7 @@ const AddButton = () => {
 
     return (
         <View>
-            <SquareButton handler={toggleOverlay} icon={<MinusCircle />}></SquareButton>
+            <SquareButton handler={toggleOverlay} icon={<PlusCircle />}></SquareButton>
             <Overlay overlayStyle={style.overlayContainer} backdropStyle={style.overlayBackdrop} isVisible={visible}>
                 <View style={style.buttonContainer}>
                     <View style={style.row}>
@@ -28,7 +28,7 @@ const AddButton = () => {
                         <SquareButton style={[style.button]} icon={<PlusCircle />}></SquareButton>
                     </View>
                     <View style={style.row}>
-                        <SquareButton style={[style.button, style.primaryButton]} handler={toggleOverlay} icon={<PlusCircle />}></SquareButton>
+                        <SquareButton style={[style.button, style.primaryButton]} handler={toggleOverlay} icon={<MinusCircle />}></SquareButton>
                         <SquareButton style={[style.button]} icon={<PlusCircle />}></SquareButton>
                     </View>
                 </View>
