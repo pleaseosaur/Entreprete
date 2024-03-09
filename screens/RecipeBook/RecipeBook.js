@@ -23,6 +23,10 @@ const RecipeBook = ({navigation, route}) => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
+    if (recipesIds === undefined) {
+      setRecipes(testData.recipes);
+      return;
+    }
     if (recipesIds && recipesIds.length > 0) {
       // Check if recipesIds exists and has length
       originalRecipes = testData.recipes.filter(recipe =>
@@ -32,7 +36,8 @@ const RecipeBook = ({navigation, route}) => {
       setRecipes(originalRecipes);
     } else {
       // If no recipe IDs are provided, set all recipes
-      setRecipes(testData.recipes);
+      setRecipes([]);
+      originalRecipes = [];
     }
   }, [recipesIds]);
 
