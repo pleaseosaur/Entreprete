@@ -3,6 +3,7 @@ import {View, ScrollView, Text} from 'react-native';
 import {Overlay} from 'react-native-elements';
 import {SquareButton} from '../Button/Button';
 import {PlusCircle} from '../Icons/Icons';
+import {MinusCircle} from '../Icons/Icons';
 import style from './style';
 
 const AddButton = () => {
@@ -19,7 +20,7 @@ const AddButton = () => {
 
     return (
         <View>
-            <SquareButton handler={toggleOverlay} icon={<PlusCircle />}></SquareButton>
+            <SquareButton handler={toggleOverlay} icon={<MinusCircle />}></SquareButton>
             <Overlay overlayStyle={style.overlayContainer} backdropStyle={style.overlayBackdrop} isVisible={visible}>
                 <View style={style.buttonContainer}>
                     <View style={style.row}>
