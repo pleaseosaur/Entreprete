@@ -20,7 +20,7 @@ const AddButton = () => {
 
     return (
         <View>
-            <SquareButton handler={toggleOverlay} icon={<MinusCircle />}></SquareButton>
+            <SquareButton handler={toggleOverlay} icon={<PlusCircle />}></SquareButton>
             <Overlay overlayStyle={style.overlayContainer} backdropStyle={style.overlayBackdrop} isVisible={visible}>
                 <View style={style.buttonContainer}>
                     <View style={style.row}>
