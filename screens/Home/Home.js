@@ -13,6 +13,7 @@ import {
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import BaseScreen from '../BaseScreen/BaseScreen';
+import AddButton from '../../components/AddButton/AddButton';
 
 const Home = ({navigation}) => {
   const navigateToRecipeBook = () => {
@@ -63,9 +64,10 @@ const Home = ({navigation}) => {
               text={' Meal Plans'}></PillButton>
           </View>
         </View>
-        <View>
+        {/* <View>
           <SquareButton icon={<PlusCircle />}></SquareButton>
-        </View>
+        </View> */}
+        <AddButton></AddButton>
         {/* Search bar */}
         <View>
           <SearchBar />
