@@ -97,6 +97,24 @@ const PlusCircle = props => (
   </Svg>
 );
 
+const MinusCircle = props => (
+<Svg
+    xmlns="http://www.w3.org/2000/svg"
+    width = {24}
+    height = {24}
+    fill = "none"
+    {...props}>
+    <Path
+        stroke = "#FDF8EF"
+        strokeLinecap = "round"
+        strokeLinejoin = "round"
+        strokeWidth = {2}
+        d="M15 12H9M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+    />
+</Svg>
+
+);
+
 const ArrowLeft = props => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
@@ -205,6 +223,7 @@ export {
   ClipBoardList,
   Search,
   PlusCircle,
+    MinusCircle,
   ArrowLeft,
   EditMessage,
   PlaceHolder,

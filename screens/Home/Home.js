@@ -2,7 +2,6 @@ import React from 'react';
 import {SafeAreaView, View, Image, KeyboardAvoidingView} from 'react-native';
 import {HomeTitleText} from '../../components/Text';
 import {PillButton} from '../../components/Button/Button';
-import {SquareButton} from '../../components/Button/Button';
 import {
   BookOpened,
   DoubleSoup,
@@ -12,7 +11,6 @@ import {
 } from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
-import BaseScreen from '../BaseScreen/BaseScreen';
 import AddButton from '../../components/AddButton/AddButton';
 
 const Home = ({navigation}) => {
