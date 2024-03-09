@@ -9,10 +9,8 @@ const styles = StyleSheet.create({
         backgroundColor: palette.dark_purple,
     },
     overlayContainer: {
-        // position added to fix add button overlay
-        position: 'relative',
-        backgroundColor: 'blur(20px)',
-        shadowColor: 'blur(20px)',
+        backgroundColor: 'transparent',
+        shadowColor: 'transparent',
         alignSelf: "flex-start",
         flexDirection: 'column',
         justifyContent: 'flex-end',
@@ -29,8 +27,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(72, 71, 75, 0.7)'
     },
     buffer: {
-        // height adjusted from 50 to 83 to fix add button overlay
-        height: 83,
+        height: 50,
         marginTop: '2%',
         marginBottom: '3%',
     },
