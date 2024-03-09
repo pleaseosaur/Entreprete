@@ -3,11 +3,12 @@ import palette from "../../styles/Common.styles";
 
 const styles = StyleSheet.create({
     button: {
-        backgroundColor: palette.light_purple,
-    },
-    primaryButton: {
         backgroundColor: palette.dark_purple,
     },
+    primaryButton: {
+        backgroundColor: palette.light_purple,
+    },
+
     overlayContainer: {
         backgroundColor: 'transparent',
         shadowColor: 'transparent',
@@ -16,9 +17,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         flex: 1
     },
+
     row: {
         flexDirection: 'row',
     },
+
     buttonContainer: {
 
     },
