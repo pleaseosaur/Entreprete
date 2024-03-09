@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, ScrollView} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
 import {SquareButton} from '../../components/Button/Button';
@@ -9,6 +9,8 @@ import ListItem from '../../components/ListItem/ListItem';
 import testData from '../../mockServer/db.json';
 
 const Collections = ({navigation}) => {
+  const [collections, setCollections] = useState(testData.collections);
+
   const goBack = () => {
     navigation.goBack();
   };
@@ -20,6 +22,17 @@ const Collections = ({navigation}) => {
     navigation.navigate('Home');
   };
 
+  const handleSearch = text => {
+    if (text === '') {
+      setCollections(testData.collections);
+      return;
+    }
+    const filteredCollections = testData.collections.filter(collection =>
+      collection.name.toLowerCase().includes(text.toLowerCase()),
+    );
+    setCollections(filteredCollections);
+  };
+
   return (
     <BaseScreen
       title={'Collections'}
@@ -27,7 +40,7 @@ const Collections = ({navigation}) => {
       canGoBack={true}
       goBack={goBack}>
       <ScrollView style={style.scrollContainer}>
-        {testData.collections.map((collection, index) => {
+        {collections.map((collection, index) => {
           return (
             <ListItem
               name={collection.name}
@@ -51,7 +64,7 @@ const Collections = ({navigation}) => {
         </View>
         {/* Search bar */}
         <View>
-          <SearchBar />
+          <SearchBar handleSearch={handleSearch} />
         </View>
       </View>
     </BaseScreen>
