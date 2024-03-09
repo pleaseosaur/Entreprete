@@ -4,12 +4,11 @@ import {
   View,
   TouchableWithoutFeedback,
   TextInput,
-  Text,
 } from 'react-native';
 import {Search} from '../Icons/Icons';
 import styles from './style';
 
-const SearchBar = () => {
+const SearchBar = ({handleSearch, test}) => {
   const [search, setSearch] = useState('');
 
   return (
@@ -20,6 +19,10 @@ const SearchBar = () => {
           value={search}
           placeholder="Search for recipes"
           keyboardType="default"
+          onChangeText={text => {
+            setSearch(text);
+            handleSearch(text);
+          }}
         />
         <TouchableWithoutFeedback>
           <View>

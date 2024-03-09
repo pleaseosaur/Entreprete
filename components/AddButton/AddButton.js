@@ -28,7 +28,7 @@ const AddButton = () => {
                         <SquareButton style={[style.button]} icon={<PlusCircle />}></SquareButton>
                     </View>
                     <View style={style.row}>
-                        <SquareButton style={[style.button, style.primaryButton]} handler={toggleOverlay} icon={<PlusCircle />}></SquareButton>
+                        <SquareButton style={[style.button, style.primaryButton]} handler={toggleOverlay} icon={<MinusCircle />}></SquareButton>
                         <SquareButton style={[style.button]} icon={<PlusCircle />}></SquareButton>
                     </View>
                 </View>

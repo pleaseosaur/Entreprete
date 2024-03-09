@@ -10,20 +10,42 @@ import testData from '../../mockServer/db.json';
 
 const RecipeBook = ({navigation, route}) => {
   const recipesIds = route.params?.recipesIds;
+  let originalRecipes = [];
+
+  if (recipesIds) {
+    originalRecipes = testData.recipes.filter(recipe =>
+      recipesIds.includes(recipe.id),
+    );
+  } else {
+    originalRecipes = testData.recipes;
+  }
 
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     if (recipesIds && recipesIds.length > 0) {
       // Check if recipesIds exists and has length
-      setRecipes(
-        testData.recipes.filter(recipe => recipesIds.includes(recipe.id)),
+      originalRecipes = testData.recipes.filter(recipe =>
+        recipesIds.includes(recipe.id),
       );
+      console.log('originalRecipes', originalRecipes);
+      setRecipes(originalRecipes);
     } else {
       // If no recipe IDs are provided, set all recipes
       setRecipes(testData.recipes);
     }
   }, [recipesIds]);
+
+  const handleSearch = text => {
+    if (text === '') {
+      setRecipes(originalRecipes);
+      return;
+    }
+    const filteredRecipes = originalRecipes.filter(recipe =>
+      recipe.name.toLowerCase().includes(text.toLowerCase()),
+    );
+    setRecipes(filteredRecipes);
+  };
 
   const goBack = () => {
     navigation.goBack();
@@ -81,7 +103,7 @@ const RecipeBook = ({navigation, route}) => {
         </View>
         {/* Search bar */}
         <View>
-          <SearchBar />
+          <SearchBar handleSearch={handleSearch} test="testing" />
         </View>
       </View>
     </BaseScreen>
