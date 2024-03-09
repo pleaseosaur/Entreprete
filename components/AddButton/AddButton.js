@@ -1,8 +1,8 @@
 import React, {useState, useRef} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 import {Overlay} from 'react-native-elements';
-import {SquareButton} from '../../components/Button/Button';
-import {PlusCircle} from '../../components/Icons/Icons';
+import {SquareButton} from '../Button/Button';
+import {PlusCircle} from '../Icons/Icons';
 import style from './style';
 
 const AddButton = () => {
