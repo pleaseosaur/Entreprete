@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, ScrollView, Text} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
 import ListItem from '../../components/ListItem/ListItem';
@@ -6,71 +6,24 @@ import {SquareButton} from '../../components/Button/Button';
 import {PlusCircle, Home} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
+import testData from '../../mockServer/db.json';
 
 const RecipeBook = ({navigation, route}) => {
-  // const {recipes = []} = route.params || [];
-  const testRecipes = [
-    {
-      name: 'Recipe',
-      ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-      instructions: ['direction 1', 'direction 2'],
-    },
-    {
-      name: 'Super Long Recipe Name',
-      ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-      instructions: ['direction 1', 'direction 2'],
-    },
-    {
-      name: 'Recipe',
-      ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-      instructions: ['direction 1', 'direction 2'],
-    },
-    {
-      name: 'Even Longer Super Long Recipe Name Literally So Long',
-      ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-      instructions: ['direction 1', 'direction 2'],
-    },
-    {      name: 'Recipe',
-    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-    instructions: ['direction 1', 'direction 2'],
-  },
-  {
-    name: 'Super Long Recipe Name',
-    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-    instructions: ['direction 1', 'direction 2'],
-  },
-  {
-    name: 'Recipe',
-    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-    instructions: ['direction 1', 'direction 2'],
-  },
-  {
-    name: 'Even Longer Super Long Recipe Name Literally So Long',
-    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-    instructions: ['direction 1', 'direction 2'],
-  },
-  {      
-    name: 'Recipe',
-    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-    instructions: ['direction 1', 'direction 2'],
-  },
-  {
-    name: 'Super Long Recipe Name',
-    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-    instructions: ['direction 1', 'direction 2'],
-  },
-  {
-    name: 'Recipe',
-    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-    instructions: ['direction 1', 'direction 2'],
-  },
-  {
-    name: 'Even Longer Super Long Recipe Name Literally So Long',
-    ingredients: [{amount: "4 tbsp", ingredients: "ingredient 1"}, {amount: "1 handful", ingredients: "ingredient 2  "}, {amount: "10 cups", ingredients: "ingredient 3"}],
-    instructions: ['direction 1', 'direction 2'],
-  }];
+  const recipesIds = route.params?.recipesIds;
 
-  const [recipes, setRecipes] = useState(testRecipes);
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    if (recipesIds && recipesIds.length > 0) {
+      // Check if recipesIds exists and has length
+      setRecipes(
+        testData.recipes.filter(recipe => recipesIds.includes(recipe.id)),
+      );
+    } else {
+      // If no recipe IDs are provided, set all recipes
+      setRecipes(testData.recipes);
+    }
+  }, [recipesIds]);
 
   const goBack = () => {
     navigation.goBack();
@@ -83,13 +36,12 @@ const RecipeBook = ({navigation, route}) => {
     navigation.navigate('Home');
   };
 
-  const deleteRecipe = (index) => {
-    setRecipes((prevRecipes) => {
+  const deleteRecipe = index => {
+    setRecipes(prevRecipes => {
       const newRecipes = prevRecipes.filter((_, i) => i !== index);
       return newRecipes;
     });
   };
-
 
   return (
     <BaseScreen
