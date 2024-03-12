@@ -7,9 +7,12 @@ import {PlusCircle, Home} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import testData from '../../mockServer/db.json';
+import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
 
 const RecipeBook = ({navigation, route}) => {
   const recipesIds = route.params?.recipesIds;
+  const isCollection = route.params?.isCollection || false; //set to true to search within the collection only
+  const pageTitle = route.params?.pageTitle || 'Recipe Book';
   let originalRecipes = [];
 
   if (recipesIds) {
@@ -41,15 +44,22 @@ const RecipeBook = ({navigation, route}) => {
     }
   }, [recipesIds]);
 
-  const handleSearch = text => {
+  const handleSearch = async (text) => {
     if (text === '') {
       setRecipes(originalRecipes);
       return;
     }
-    const filteredRecipes = originalRecipes.filter(recipe =>
-      recipe.name.toLowerCase().includes(text.toLowerCase()),
-    );
-    setRecipes(filteredRecipes);
+
+    if(isCollection) {
+      const filteredRecipes = originalRecipes.filter(recipe =>
+        recipe.name.toLowerCase().includes(text.toLowerCase()),
+      );
+      setRecipes(filteredRecipes);
+    }
+    else {
+      const searchResult = await RecipeSearch(text);
+      setRecipes(searchResult);
+    }
   };
 
   const goBack = () => {
@@ -72,7 +82,8 @@ const RecipeBook = ({navigation, route}) => {
 
   return (
     <BaseScreen
-      title={'Recipe Book'}
+      // title={'Recipe Book'}
+      title={pageTitle}
       canEdit={false}
       canGoBack={true}
       goBack={goBack}>

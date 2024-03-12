@@ -249,6 +249,13 @@
         "name": "Korean Cuisine",
         "recipes": []
       }
+    ],
+    "mealplans": [
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      }
     ]
-
 }

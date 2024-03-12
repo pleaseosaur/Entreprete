@@ -7,6 +7,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import ListItem from '../../components/ListItem/ListItem';
 import testData from '../../mockServer/db.json';
+import {CollectionSearch} from '../../mockServer/functionality/searchFunctions';
 
 const Collections = ({navigation}) => {
   const [collections, setCollections] = useState(testData.collections);
@@ -14,8 +15,8 @@ const Collections = ({navigation}) => {
   const goBack = () => {
     navigation.goBack();
   };
-  const navigateToRecipe = recipes => {
-    navigation.navigate('RecipeBook', {recipesIds: recipes});
+  const navigateToRecipe = (recipes, name) => {
+    navigation.navigate('RecipeBook', {recipesIds: recipes, isCollection: true, pageTitle: name});
   };
 
   const goHome = () => {
@@ -46,7 +47,7 @@ const Collections = ({navigation}) => {
               name={collection.name}
               recipe={collection}
               key={index}
-              onPress={() => navigateToRecipe(collection.recipes)}
+              onPress={() => navigateToRecipe(collection.recipes, collection.name)}
               swipeHandler={() => deleteRecipe(index)}
             />
           );
@@ -64,7 +65,7 @@ const Collections = ({navigation}) => {
         </View>
         {/* Search bar */}
         <View>
-          <SearchBar handleSearch={handleSearch} />
+          <SearchBar handleSearch={CollectionSearch} />
         </View>
       </View>
     </BaseScreen>

@@ -21,8 +21,8 @@ const SearchBar = ({handleSearch, test}) => {
           keyboardType="default"
           onChangeText={text => {
             setSearch(text);
-            handleSearch(text);
           }}
+          onSubmitEditing={() => handleSearch(search)}
         />
         <TouchableWithoutFeedback>
           <View>

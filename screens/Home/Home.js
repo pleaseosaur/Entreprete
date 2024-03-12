@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, View, Image, KeyboardAvoidingView} from 'react-native';
 import {HomeTitleText} from '../../components/Text';
 import {PillButton} from '../../components/Button/Button';
@@ -12,10 +12,13 @@ import {
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import AddButton from '../../components/AddButton/AddButton';
+import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
 
 const Home = ({navigation}) => {
+  const [searchResult, setSearchResult] = useState(null);
+
   const navigateToRecipeBook = () => {
-    navigation.navigate('RecipeBook');
+    navigation.navigate('RecipeBook', {isCollection: false});
   };
   const navigateToCollections = () => {
     navigation.navigate('Collections');
@@ -27,30 +30,10 @@ const Home = ({navigation}) => {
     navigation.navigate('MealPlan');
   };
 
-  const axios = require('axios').default;
-
   const handleSearch = async (userInput) => {
-    console.log("ATTEMPTING TO LOAD RECIPES");
-    try {
-      const response = await axios.get(`http://10.0.2.2:3000/recipes?q=${userInput}`);
-
-      console.log("success");
-      console.log(response);
-
-    } catch (error) {
-      console.log(error);
-      if (error.response) {
-        console.log("DATA" + error.response.data);
-        console.log("STATUS" + error.response.status);
-        console.log("HEADERS" + error.response.headers);
-      } else if (error.request) {
-        console.log("REQUEST" + error.request);
-      } else {
-        console.log('Error', error.message);
-      }
-      console.log(error.config);
-    }
-  }
+    const x = await RecipeSearch(userInput);
+    setSearchResult(x);
+  };
 
   return (
     <SafeAreaView style={style.homeContainer}>
