@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View, Image, KeyboardAvoidingView} from 'react-native';
+import {SafeAreaView, View, Image, KeyboardAvoidingView, StatusBar} from 'react-native';
 import {HomeTitleText} from '../../components/Text';
 import {PillButton} from '../../components/Button/Button';
 import {
@@ -13,6 +13,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import AddButton from '../../components/AddButton/AddButton';
 import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
+import palette from '../../styles/Common.styles';
 
 const Home = ({navigation}) => {
   const [searchResult, setSearchResult] = useState(null);
@@ -37,6 +38,7 @@ const Home = ({navigation}) => {
 
   return (
     <SafeAreaView style={style.homeContainer}>
+      <StatusBar backgroundColor={palette.white} barStyle={"dark-content"}></StatusBar>
       <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
         {/* Home Page Title */}
         <View style={style.homeTitleContainer}>
