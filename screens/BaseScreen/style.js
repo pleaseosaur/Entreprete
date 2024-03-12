@@ -6,38 +6,45 @@ const style = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: palette.white, // Use a common background color
+    paddingTop: 15
   },
   topContainer: {
     marginHorizontal: '2%',
     flexDirection: 'row',
     marginBottom: '3%',
+    alignItems: 'center',
+    height: 50,
   },
   topGoBackContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 50,
-    height: 50,
-    margin: 5,
   },
   topTitleContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
+    flexDirection: 'row',
   },
-  topTitle: {
-    fontSize: 32,
-    fontWeight: "700",
-    fontFamily: 'Nunito-Bold',
-    color: palette.light_grey,
+  topTitleText: {
+    paddingLeft: 5,
+    margin: 1,
   },
   EditMessageContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     width: 50,
-    margin: 5,
   },
+  leftButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+  rightButton: {
+    backgroundColor: "transparent",
+  }
 });
 
 export default style;

@@ -7,7 +7,6 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import ListItem from '../../components/ListItem/ListItem';
 import testData from '../../mockServer/db.json';
-import {CollectionSearch} from '../../mockServer/functionality/searchFunctions';
 
 const Collections = ({navigation}) => {
   const [collections, setCollections] = useState(testData.collections);
@@ -23,7 +22,7 @@ const Collections = ({navigation}) => {
     navigation.navigate('Home');
   };
 
-  const handleSearch = text => {
+  const handleSearch = async (text) => {
     if (text === '') {
       setCollections(testData.collections);
       return;
@@ -65,7 +64,7 @@ const Collections = ({navigation}) => {
         </View>
         {/* Search bar */}
         <View>
-          <SearchBar handleSearch={CollectionSearch} />
+          <SearchBar handleSearch={handleSearch} />
         </View>
       </View>
     </BaseScreen>

@@ -82,7 +82,6 @@ const RecipeBook = ({navigation, route}) => {
 
   return (
     <BaseScreen
-      // title={'Recipe Book'}
       title={pageTitle}
       canEdit={false}
       canGoBack={true}

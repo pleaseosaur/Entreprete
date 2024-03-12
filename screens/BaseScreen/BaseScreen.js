@@ -1,28 +1,29 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Pressable} from 'react-native';
+import {SafeAreaView, View, Text, Pressable, StatusBar} from 'react-native';
 import style from './style.js'; // Import base styles
 import {CircleButton} from '../../components/Button/Button.js';
 import {ArrowLeft, EditMessage} from '../../components/Icons/Icons.js';
+import { ScreenTitleText } from '../../components/Text.js';
+import palette from '../../styles/Common.styles';
 
 const BaseScreen = ({title, children, goBack, canEdit, canGoBack}) => {
   return (
     <SafeAreaView style={style.container}>
+      <StatusBar backgroundColor={palette.white} barStyle={"dark-content"}></StatusBar>
       <View style={style.topContainer}>
         {canGoBack ? (
           <View>
-            <CircleButton icon={<ArrowLeft />} handler={goBack} />
+            <CircleButton icon={<ArrowLeft/>} handler={goBack} style={style.leftButton}/>
           </View>
         ) : (
           <View style={style.topGoBackContainer}></View>
         )}
         <View style={style.topTitleContainer}>
-          <Text style={style.topTitle}>{title}</Text>
+          <ScreenTitleText style={style.topTitleText} adjustsFontSizeToFit={true}>{title}</ScreenTitleText>
         </View>
         {canEdit ? (
           <View style={style.EditMessageContainer}>
-            <Pressable>
-              <EditMessage />
-            </Pressable>
+            <CircleButton style={style.rightButton} icon={<EditMessage height={30} width={30}/>}></CircleButton>
           </View>
         ) : (
           <View style={style.EditMessageContainer}></View>
