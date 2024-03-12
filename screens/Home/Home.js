@@ -27,6 +27,31 @@ const Home = ({navigation}) => {
     navigation.navigate('MealPlan');
   };
 
+  const axios = require('axios').default;
+
+  const handleSearch = async (userInput) => {
+    console.log("ATTEMPTING TO LOAD RECIPES");
+    try {
+      const response = await axios.get(`http://10.0.2.2:3000/recipes?q=${userInput}`);
+
+      console.log("success");
+      console.log(response);
+
+    } catch (error) {
+      console.log(error);
+      if (error.response) {
+        console.log("DATA" + error.response.data);
+        console.log("STATUS" + error.response.status);
+        console.log("HEADERS" + error.response.headers);
+      } else if (error.request) {
+        console.log("REQUEST" + error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    }
+  }
+
   return (
     <SafeAreaView style={style.homeContainer}>
       <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
@@ -68,7 +93,7 @@ const Home = ({navigation}) => {
         <AddButton></AddButton>
         {/* Search bar */}
         <View>
-          <SearchBar />
+          <SearchBar handleSearch={handleSearch}/>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>

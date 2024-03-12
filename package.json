@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "server": "json-server mockServer/db.json --routes mockServer/routes.json",
+    "server": "json-server mockServer/db.json --routes mockServer/routes.json --host 127.0.0.1",
     "test": "jest"
   },
   "dependencies": {
