@@ -2,6 +2,8 @@ import {StyleSheet} from 'react-native';
 import palette from '../../styles/Common.styles';
 
 const style = StyleSheet.create({
+  scrollContainer: {
+  },
   ingredientContainer: {
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -52,7 +54,7 @@ const style = StyleSheet.create({
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 10,
+    marginVertical: 10,
   },
 });
 

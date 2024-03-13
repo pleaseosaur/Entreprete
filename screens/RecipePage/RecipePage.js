@@ -27,7 +27,7 @@ const RecipePage = ({navigation, route}) => {
       canEdit={true}
       canGoBack={true}
       goBack={goBack}>
-      <View>
+      <ScrollView style={style.scrollContainer}>
         <View style={style.ingredientContainer}>
           <Text style={style.itemTitle}>Ingredients</Text>
           <View style={style.ingredient}>
@@ -64,7 +64,7 @@ const RecipePage = ({navigation, route}) => {
             })}
           </View>
         </View>
-      </View>
+      </ScrollView>
       <View style={style.buttonsContainer}>
           <SquareButton handler={goHome} icon={<Home />}></SquareButton>
       </View>
