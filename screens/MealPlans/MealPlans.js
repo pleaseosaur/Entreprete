@@ -7,6 +7,7 @@ import ListItem from '../../components/ListItem/ListItem';
 import style from './style';
 import testData from '../../mockServer/db.json';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import { MealPlanSearch } from '../../mockServer/functionality/searchFunctions';
 
 const MealPlans = ({navigation, mealPlanName}) => {
     const [plans, setPlans] = useState(testData.mealplans);
@@ -28,11 +29,9 @@ const MealPlans = ({navigation, mealPlanName}) => {
           setCollections(testData.collections);
           return;
         }
-        const filteredPlans = testData.mealplans.filter(plan =>
-          plan.name.toLowerCase().includes(text.toLowerCase()),
-        );
-        setPlans(filteredPlans);
-      };
+        const searchResult = await MealPlanSearch(text);
+        setPlans(searchResult);
+    };
 
     const deletePlan = index => {
         setPlans(prev => {
@@ -70,7 +69,7 @@ const MealPlans = ({navigation, mealPlanName}) => {
                     <View style={style.buttonPlaceHolder}></View>
                 </View>
                 <View>
-                    <SearchBar handleSearch={handleSearch} />
+                    <SearchBar placeholderText={"Search meal plans"} handleSearch={handleSearch} />
                 </View>
             </View>
         </BaseScreen>

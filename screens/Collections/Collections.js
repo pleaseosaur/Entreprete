@@ -71,7 +71,7 @@ const Collections = ({navigation}) => {
         </View>
         {/* Search bar */}
         <View>
-          <SearchBar handleSearch={handleSearch} />
+          <SearchBar placeholderText={"Search collections"} handleSearch={handleSearch} />
         </View>
       </View>
     </BaseScreen>

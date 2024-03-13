@@ -8,7 +8,7 @@ import {
 import {Search} from '../Icons/Icons';
 import styles from './style';
 
-const SearchBar = ({handleSearch, test}) => {
+const SearchBar = ({handleSearch, placeholderText, test}) => {
   const [search, setSearch] = useState('');
 
   return (
@@ -17,7 +17,7 @@ const SearchBar = ({handleSearch, test}) => {
         <TextInput
           style={styles.input}
           value={search}
-          placeholder="Search for recipes"
+          placeholder={placeholderText || "Search for recipes"}
           keyboardType="default"
           onChangeText={text => {
             setSearch(text);
