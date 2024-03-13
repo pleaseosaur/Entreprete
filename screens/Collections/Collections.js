@@ -33,6 +33,13 @@ const Collections = ({navigation}) => {
     setCollections(filteredCollections);
   };
 
+  const deleteCollection = index => {
+    setCollections(prev => {
+        const newPlans = prev.filter((_, i) => i !== index);
+        return newPlans;
+    });
+  };
+
   return (
     <BaseScreen
       title={'Collections'}
@@ -47,7 +54,7 @@ const Collections = ({navigation}) => {
               recipe={collection}
               key={index}
               onPress={() => navigateToRecipe(collection.recipes, collection.name)}
-              swipeHandler={() => deleteRecipe(index)}
+              swipeHandler={() => deleteCollection(index)}
             />
           );
         })}

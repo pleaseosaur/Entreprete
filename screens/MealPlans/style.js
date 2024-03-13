@@ -2,6 +2,13 @@ import {StyleSheet} from "react-native";
 import palette from "../../styles/Common.styles";
 
 const style = StyleSheet.create({
+    scrollContainer: {
+        marginBottom: '5%',
+        marginHorizontal: '5%',
+    },
+    plansSearchContainer: {
+        marginHorizontal: '5%',
+    },
     buttonsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
