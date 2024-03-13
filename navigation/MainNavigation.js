@@ -5,6 +5,7 @@ import Collections from '../screens/Collections/Collections';
 import CalendarScreen from "../screens/Calendar/Calendar";
 import RecipePage from '../screens/RecipePage/RecipePage';
 import MealPlans from '../screens/MealPlans/MealPlans';
+import EditCollection from '../screens/EditCollection/EditCollection';
 
 const Stack = createStackNavigator();
 
@@ -12,13 +13,16 @@ const MainNavigation = () => {
     return (
     <Stack.Navigator
       screenOptions={{header: () => null, headerShown: false}}
-      initialRouteName={'Home'}>
+      // initialRouteName={'Home'}>
+      //TODO: change back before pushing
+      initialRouteName={'EditCollection'}> 
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="RecipeBook" component={RecipeBook} />
         <Stack.Screen name="Collections" component={Collections} />
         <Stack.Screen name={'Calendar'} component={CalendarScreen} />
         <Stack.Screen name={'RecipePage'} component={RecipePage} />
         <Stack.Screen name={'MealPlan'} component={MealPlans} />
+        <Stack.Screen name={'EditCollection'} component={EditCollection} />
     </Stack.Navigator>
     );
 };
