@@ -2,8 +2,7 @@ import {StyleSheet} from 'react-native';
 import palette from '../../styles/Common.styles';
 
 const style = StyleSheet.create({
-  scrollContainer: {
-  },
+  scrollContainer: {},
   ingredientContainer: {
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -12,32 +11,32 @@ const style = StyleSheet.create({
   itemTitle: {
     color: '#48474B',
     fontSize: 22,
-    fontWeight: "700",
+    fontWeight: '700',
     fontFamily: 'Nunito-Bold',
   },
   ingredient: {
-    width: '50%',
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: 5,
+    marginVertical: 30,
   },
   ingredientAmountContainer: {
+    flex: 1,
     margin: 5,
   },
   ingredientNameContainer: {
+    flex: 2,
     margin: 5,
   },
   ingredientName: {
     color: '#000',
     fontSize: 16,
-    fontWeight: "700",
-    marginTop: '2.5%',
+    fontWeight: '400',
   },
   ingredientAmount: {
     color: palette.med_grey,
-    fontFamily: 'Nunito-Bold',
     fontSize: 16,
-    fontWeight: "700",
+    fontWeight: '700',
   },
   instructionsContainer: {
     flexDirection: 'column',
