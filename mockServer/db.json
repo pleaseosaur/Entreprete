@@ -252,10 +252,18 @@
     ],
     "mealplans": [
       {
-        "id": 1
+        "id": 1,
+        "name": "Weekly Meal Plan",
+        "length": 7,
+        "time": "days",
+        "recipes": [1, 2, 3, 4, 5, 6, 7]
       },
       {
-        "id": 2
+        "id": 2,
+        "name": "Quick and Easy",
+        "length": 3,
+        "time": "days",
+        "recipes": [8, 9, 1]
       }
     ]
 }
