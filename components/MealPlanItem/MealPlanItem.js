@@ -5,7 +5,7 @@ import { PlaceHolder, Linear } from '../Icons/Icons';
 
 const MealPlanItem = ({ navigation, mealPlan, onPress }) => {
     const navigateToMealPlan = mealPlans => {
-        navigation.navigate('MealPlan', { mealPlans: mealPlans });
+        navigation.navigate('MealPlan', { mealPlans: mealplans });
     }
 
     return (
