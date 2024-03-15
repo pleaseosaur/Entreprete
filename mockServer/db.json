@@ -256,14 +256,26 @@
         "name": "Weekly Meal Plan",
         "length": 7,
         "time": "days",
-        "recipes": [1, 2, 3, 4, 5, 6, 7]
+        "recipes": {
+          "day1": [1, 2, 3],
+          "day2": [4, 5, 6],
+          "day3": [7, 8, 9],
+          "day4": [1, 2, 3],
+          "day5": [4, 5, 6],
+          "day6": [7, 8, 9],
+          "day7": [7]
+        }
       },
       {
         "id": 2,
         "name": "Quick and Easy",
         "length": 3,
         "time": "days",
-        "recipes": [8, 9, 1]
+        "recipes": {
+          "day1": [1, 2, 3],
+          "day2": [4, 5, 6],
+          "day3": [7, 8, 9]
+        }
       }
     ]
 }
