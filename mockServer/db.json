@@ -250,7 +250,7 @@
         "recipes": []
       }
     ],
-    "mealplans": [
+    "mealPlans": [
       {
         "id": 1,
         "name": "Weekly Meal Plan",

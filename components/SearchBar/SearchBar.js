@@ -4,12 +4,15 @@ import {
   View,
   TouchableWithoutFeedback,
   TextInput,
+    KeyboardAvoidingView,
+    Platform,
 } from 'react-native';
 import {Search} from '../Icons/Icons';
 import styles from './style';
 
 const SearchBar = ({handleSearch, placeholderText, test}) => {
   const [search, setSearch] = useState('');
+  const [keyboardType, setKeyboardType] = useState('default');
 
   return (
     <SafeAreaView>

@@ -8,9 +8,10 @@ import style from './style';
 import testData from '../../mockServer/db.json';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { MealPlanSearch } from '../../mockServer/functionality/searchFunctions';
+import MealPlanItem from "../../components/MealPlanItem/MealPlanItem";
 
 const MealPlans = ({navigation, mealPlanName}) => {
-    const [plans, setPlans] = useState(testData.mealplans);
+    const [plans, setPlans] = useState(testData.mealPlans);
 
     const goBack = () => {
         navigation.goBack();
@@ -26,7 +27,7 @@ const MealPlans = ({navigation, mealPlanName}) => {
 
     const handleSearch = async (text) => {
         if (text === '') {
-          setPlans(testData.mealplans);
+          setPlans(testData.mealPlans);
           return;
         }
         const searchResult = await MealPlanSearch(text);
@@ -54,7 +55,8 @@ const MealPlans = ({navigation, mealPlanName}) => {
                 {plans.map((plan, index) => {
                     return (
                         <ListItem
-                        name={mealPlanName || plan.id}
+                        name={mealPlanName ? mealPlanName : plan.name}
+                        id={plan.id}
                         key={index}
                         onPress={() => selectMealPlan(plan)}
                         swipeHandler={() => deletePlan(index)}

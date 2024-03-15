@@ -24,3 +24,5 @@ const MealPlanItem = ({ navigation, mealPlan, onPress }) => {
     </View>
     );
 }
+
+export default MealPlanItem;
