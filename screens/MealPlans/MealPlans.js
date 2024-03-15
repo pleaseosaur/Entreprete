@@ -20,18 +20,22 @@ const MealPlans = ({navigation, mealPlanName}) => {
         navigation.navigate('Home');
     };
 
-    const selectMealPlan = () => {
-        navigation.navigate('MealPlan');
+    const selectMealPlan = (plan) => {
+        navigation.navigate('MealPlan', {mealPlan: plan})
     };
 
     const handleSearch = async (text) => {
         if (text === '') {
-          setCollections(testData.collections);
+          setPlans(testData.mealplans);
           return;
         }
         const searchResult = await MealPlanSearch(text);
         setPlans(searchResult);
     };
+
+    const addPlan = () => {
+        navigation.navigate('AddMealPlan')
+    }
 
     const deletePlan = index => {
         setPlans(prev => {
@@ -41,10 +45,10 @@ const MealPlans = ({navigation, mealPlanName}) => {
     };
 
     return (
-        <BaseScreen 
-            title="Meal Plans" 
-            canGoBack={true} 
-            canEdit={false} 
+        <BaseScreen
+            title="Meal Plans"
+            canGoBack={true}
+            canEdit={false}
             goBack = {goBack}>
             <ScrollView style={style.scrollContainer}>
                 {plans.map((plan, index) => {
@@ -52,7 +56,7 @@ const MealPlans = ({navigation, mealPlanName}) => {
                         <ListItem
                         name={mealPlanName || plan.id}
                         key={index}
-                        onPress={selectMealPlan}
+                        onPress={() => selectMealPlan(plan)}
                         swipeHandler={() => deletePlan(index)}
                         />
                     );
@@ -61,7 +65,7 @@ const MealPlans = ({navigation, mealPlanName}) => {
             <View style={style.plansSearchContainer}>
                 <View style={style.buttonsContainer}>
                     <View>
-                        <SquareButton icon={<PlusCircle />}></SquareButton>
+                        <SquareButton icon={<PlusCircle />} handler={addPlan}></SquareButton>
                     </View>
                     <View>
                         <SquareButton handler={goHome} icon={<Home />}></SquareButton>

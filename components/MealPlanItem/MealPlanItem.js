@@ -4,8 +4,8 @@ import style from './style.js';
 import { PlaceHolder, Linear } from '../Icons/Icons';
 
 const MealPlanItem = ({ navigation, mealPlan, onPress }) => {
-    const navigateToMealPlan = mealPlans => {
-        navigation.navigate('MealPlan', { mealPlans: mealplans });
+    const navigateToMealPlan =() => {
+        navigation.navigate('MealPlan', { mealPlan: mealPlan });
     }
 
     return (
@@ -17,7 +17,7 @@ const MealPlanItem = ({ navigation, mealPlan, onPress }) => {
         <Text style={style.mealPlanName}>{mealPlan ? mealPlan.name : 'test'}</Text>
       </View>
       <View>
-        <Pressable onPress={onPress}>
+        <Pressable onPress={() => navigateToMealPlan(mealPlan)}>
           <Linear />
         </Pressable>
       </View>
