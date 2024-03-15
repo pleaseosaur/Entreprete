@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from 'react';
-import {View, ScrollView, Text, TextInput, TouchableWithoutFeedback} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import {View, ScrollView, Text, TextInput, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
 import ListItem from '../../components/ListItem/ListItem';
-import {PillButton, SquareButton} from '../../components/Button/Button';
-import {PlusCircle, Home} from '../../components/Icons/Icons';
+import {PillButton} from '../../components/Button/Button';
+import {RadioIconChecked, RadioIconUnchecked} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import testData from '../../mockServer/db.json';
 import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
 import { HeaderText } from '../../components/Text';
+import palette from '../../styles/Common.styles';
 
 const EditCollection = ({navigation, route}) => {
   const recipesIds = route.params?.recipesIds;
@@ -17,6 +18,7 @@ const EditCollection = ({navigation, route}) => {
   const pageTitle = newCollection ? "Create Collection" : "Edit Collection";
   let originalRecipes = [];
   const [collectionName, setCollectionName] = useState('');
+  const [collectionRecipes, setCollectionRecipes] = useState([]);
 
   if (recipesIds) {
     originalRecipes = testData.recipes.filter(recipe =>
@@ -69,13 +71,53 @@ const EditCollection = ({navigation, route}) => {
     navigation.goBack();
   };
 
-  const selectRecipe = recipes => {
-    //add recipe to new collection
+  const selectRecipe = (r) => {
+    //add clicked recipe to new collection
+    setCollectionRecipes((prev) => {
+        return [...prev, r.recipeId];
+    });
+  };
+
+  const removeRecipe = (r) => {
+    //remove clicked recipe from collection
+    setCollectionRecipes((prev) => {
+        return prev.filter((id) => id !== r.recipeId);
+      });
   };
 
   const submitCollection = () => {
     //submit form
+    console.log(collectionRecipes);
+    console.log(collectionName);
   }
+
+  const RadioBtn = (recipeId) => {
+    const [checked, setChecked] = useState(collectionRecipes.includes(recipeId.recipeId));
+    const [init, setInit] = useState(true);
+
+    useEffect(() => {
+      if(init) {
+        setInit(false);
+      } else {
+        if(checked) {
+          selectRecipe(recipeId);
+        }
+        else {
+          removeRecipe(recipeId);
+        }
+      }
+    }, [checked]);
+
+    return (
+    <View>
+        <TouchableWithoutFeedback onPress={() => setChecked(!checked)}>
+          {collectionRecipes.includes(recipeId.recipeId) ?
+              <RadioIconChecked color={palette.med_grey} height="30" width="30"/>
+              : <RadioIconUnchecked color={palette.med_grey} height="30" width="30"/>
+          }
+        </TouchableWithoutFeedback>
+    </View>)
+  };
 
   return (
     <BaseScreen
@@ -116,22 +158,13 @@ const EditCollection = ({navigation, route}) => {
                             name={recipe.name}
                             recipe={recipe}
                             key={index}
-                            onPress={() => selectRecipe(recipe)}
+                            rightIcon={<RadioBtn recipeId={recipe.id}/>}
                         />
                         );
                     })}
                     </ScrollView>
             )}
         <View style={style.recipeSearchContainer}>
-            {/* <View style={style.buttonsContainer}>
-            <View>
-                <SquareButton icon={<PlusCircle />}></SquareButton>
-            </View>
-            <View>
-                <SquareButton handler={goHome} icon={<Home />}></SquareButton>
-            </View>
-            <View style={style.buttonPlaceHolder}></View>
-            </View> */}
             {/* Search bar */}
             <View>
                 <SearchBar handleSearch={handleSearch} test="testing" />
