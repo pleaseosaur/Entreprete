@@ -10,6 +10,7 @@ import testData from '../../mockServer/db.json';
 import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
 import { HeaderText } from '../../components/Text';
 import palette from '../../styles/Common.styles';
+import {CreateCollection} from '../../mockServer/functionality/crudFunctions';
 
 const EditCollection = ({navigation, route}) => {
   const recipesIds = route.params?.recipesIds;
@@ -85,11 +86,18 @@ const EditCollection = ({navigation, route}) => {
       });
   };
 
-  const submitCollection = () => {
+  const submitCollection = async () => {
     //submit form
-    console.log(collectionRecipes);
-    console.log(collectionName);
-  }
+    try {
+      const result = await CreateCollection(collectionName, collectionRecipes);
+      
+      //navigate to new collection page
+      navigation.navigate('RecipeBook', {recipesIds: collectionRecipes, isCollection: true, pageTitle: collectionName});
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
 
   const RadioBtn = (recipeId) => {
     const [checked, setChecked] = useState(collectionRecipes.includes(recipeId.recipeId));
@@ -136,7 +144,6 @@ const EditCollection = ({navigation, route}) => {
                     onChangeText={text => {
                         setCollectionName(text);
                     }}
-                    // onSubmitEditing={() => handleSearch(search)}
                     />
                     <TouchableWithoutFeedback>
                     <View>
