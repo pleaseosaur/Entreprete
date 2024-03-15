@@ -25,7 +25,7 @@ const style = StyleSheet.create({
   },
   textEntryContainer: {
     paddingVertical: '2%',
-    marginBottom: 15
+    marginBottom: 25
   },
   titleInput: {
     flexDirection: 'row',
@@ -44,11 +44,12 @@ const style = StyleSheet.create({
   },
   bottomButtonContainer: {
     paddingHorizontal: '10%',
-    marginTop: 15,
+    marginTop: 20,
+    marginBottom: 10,
     paddingBottom: '5%',
   },
   submitButton: {
-      backgroundColor: palette.dark_purple
+    backgroundColor: palette.dark_purple
   }
 });
 
