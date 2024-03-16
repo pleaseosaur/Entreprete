@@ -73,6 +73,15 @@ const RecipeBook = ({navigation, route}) => {
     navigation.navigate('Home');
   };
 
+  const createCollection = () => {
+    //navigate to create collection screen
+    navigation.navigate('EditCollection', {recipesIds: recipesIds, newCollection: false, pageTitle: pageTitle, collectionTitle: pageTitle});
+  }
+
+  const createRecipe = () => {
+    //TODO: navigate to recipe creation page
+  }
+
   const deleteRecipe = index => {
     setRecipes(prevRecipes => {
       const newRecipes = prevRecipes.filter((_, i) => i !== index);
@@ -109,7 +118,7 @@ const RecipeBook = ({navigation, route}) => {
       <View style={style.recipeSearchContainer}>
         <View style={style.buttonsContainer}>
           <View>
-            <SquareButton icon={<PlusCircle />}></SquareButton>
+            <SquareButton handler={isCollection ? createCollection : createRecipe} icon={<PlusCircle />}></SquareButton>
           </View>
           <View>
             <SquareButton handler={goHome} icon={<Home />}></SquareButton>

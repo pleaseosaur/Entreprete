@@ -18,7 +18,6 @@ const style = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: 30,
   },
   ingredientAmountContainer: {
     flex: 1,

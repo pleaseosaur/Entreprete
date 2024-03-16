@@ -3,14 +3,38 @@
     {
       "name": "Classic Chocolate Chip Cookies",
       "ingredients": [
-        {"amount": "2 1/4 cups", "ingredients": "all-purpose flour"},
-        {"amount": "1/2 tsp", "ingredients": "baking soda"},
-        {"amount": "1 cup", "ingredients": "butter, softened"},
-        {"amount": "3/4 cup", "ingredients": "granulated sugar"},
-        {"amount": "3/4 cup", "ingredients": "packed brown sugar"},
-        {"amount": "1 tsp", "ingredients": "vanilla extract"},
-        {"amount": "2", "ingredients": "eggs"},
-        {"amount": "2 cups", "ingredients": "semisweet chocolate chips"}
+        {
+          "amount": "2 1/4 cups",
+          "ingredients": "all-purpose flour"
+        },
+        {
+          "amount": "1/2 tsp",
+          "ingredients": "baking soda"
+        },
+        {
+          "amount": "1 cup",
+          "ingredients": "butter, softened"
+        },
+        {
+          "amount": "3/4 cup",
+          "ingredients": "granulated sugar"
+        },
+        {
+          "amount": "3/4 cup",
+          "ingredients": "packed brown sugar"
+        },
+        {
+          "amount": "1 tsp",
+          "ingredients": "vanilla extract"
+        },
+        {
+          "amount": "2",
+          "ingredients": "eggs"
+        },
+        {
+          "amount": "2 cups",
+          "ingredients": "semisweet chocolate chips"
+        }
       ],
       "instructions": [
         "Preheat the oven to 375°F.",
@@ -28,14 +52,38 @@
     {
       "name": "Spaghetti Carbonara",
       "ingredients": [
-        {"amount": "8 oz", "ingredients": "spaghetti"},
-        {"amount": "6 slices", "ingredients": "bacon, chopped"},
-        {"amount": "3", "ingredients": "eggs"},
-        {"amount": "3/4 cup", "ingredients": "grated Parmesan cheese"},
-        {"amount": "1/2 cup", "ingredients": "heavy cream"},
-        {"amount": "1/2 tsp", "ingredients": "salt"},
-        {"amount": "1/4 tsp", "ingredients": "black pepper"},
-        {"amount": "1/4 cup", "ingredients": "chopped fresh parsley"}
+        {
+          "amount": "8 oz",
+          "ingredients": "spaghetti"
+        },
+        {
+          "amount": "6 slices",
+          "ingredients": "bacon, chopped"
+        },
+        {
+          "amount": "3",
+          "ingredients": "eggs"
+        },
+        {
+          "amount": "3/4 cup",
+          "ingredients": "grated Parmesan cheese"
+        },
+        {
+          "amount": "1/2 cup",
+          "ingredients": "heavy cream"
+        },
+        {
+          "amount": "1/2 tsp",
+          "ingredients": "salt"
+        },
+        {
+          "amount": "1/4 tsp",
+          "ingredients": "black pepper"
+        },
+        {
+          "amount": "1/4 cup",
+          "ingredients": "chopped fresh parsley"
+        }
       ],
       "instructions": [
         "Cook spaghetti according to package directions; drain, reserving 1/2 cup pasta water.",
@@ -51,14 +99,38 @@
     {
       "name": "Chicken Alfredo Pasta",
       "ingredients": [
-        {"amount": "8 oz", "ingredients": "fettuccine"},
-        {"amount": "2 cups", "ingredients": "cooked chicken, chopped"},
-        {"amount": "2 cups", "ingredients": "heavy cream"},
-        {"amount": "1/2 cup", "ingredients": "butter"},
-        {"amount": "3/4 cup", "ingredients": "grated Parmesan cheese"},
-        {"amount": "1/2 tsp", "ingredients": "salt"},
-        {"amount": "1/4 tsp", "ingredients": "black pepper"},
-        {"amount": "1/4 tsp", "ingredients": "garlic powder"}
+        {
+          "amount": "8 oz",
+          "ingredients": "fettuccine"
+        },
+        {
+          "amount": "2 cups",
+          "ingredients": "cooked chicken, chopped"
+        },
+        {
+          "amount": "2 cups",
+          "ingredients": "heavy cream"
+        },
+        {
+          "amount": "1/2 cup",
+          "ingredients": "butter"
+        },
+        {
+          "amount": "3/4 cup",
+          "ingredients": "grated Parmesan cheese"
+        },
+        {
+          "amount": "1/2 tsp",
+          "ingredients": "salt"
+        },
+        {
+          "amount": "1/4 tsp",
+          "ingredients": "black pepper"
+        },
+        {
+          "amount": "1/4 tsp",
+          "ingredients": "garlic powder"
+        }
       ],
       "instructions": [
         "Cook fettuccine according to package directions; drain.",
@@ -69,18 +141,38 @@
         "Serve immediately, garnished with additional Parmesan cheese and parsley if desired."
       ],
       "id": 3
-    }
-    ,
+    },
     {
       "name": "Homemade Margherita Pizza",
       "ingredients": [
-        {"amount": "1 lb", "ingredients": "pizza dough"},
-        {"amount": "1/2 cup", "ingredients": "tomato sauce"},
-        {"amount": "8 oz", "ingredients": "fresh mozzarella cheese, sliced"},
-        {"amount": "1/4 cup", "ingredients": "fresh basil leaves"},
-        {"amount": "2 tbsp", "ingredients": "olive oil"},
-        {"amount": "1/2 tsp", "ingredients": "salt"},
-        {"amount": "1/4 tsp", "ingredients": "black pepper"}
+        {
+          "amount": "1 lb",
+          "ingredients": "pizza dough"
+        },
+        {
+          "amount": "1/2 cup",
+          "ingredients": "tomato sauce"
+        },
+        {
+          "amount": "8 oz",
+          "ingredients": "fresh mozzarella cheese, sliced"
+        },
+        {
+          "amount": "1/4 cup",
+          "ingredients": "fresh basil leaves"
+        },
+        {
+          "amount": "2 tbsp",
+          "ingredients": "olive oil"
+        },
+        {
+          "amount": "1/2 tsp",
+          "ingredients": "salt"
+        },
+        {
+          "amount": "1/4 tsp",
+          "ingredients": "black pepper"
+        }
       ],
       "instructions": [
         "Preheat the oven to 475°F.",
@@ -97,14 +189,38 @@
     {
       "name": "Grilled Salmon with Lemon and Garlic",
       "ingredients": [
-        {"amount": "4", "ingredients": "salmon fillets"},
-        {"amount": "2 tbsp", "ingredients": "olive oil"},
-        {"amount": "2 cloves", "ingredients": "garlic, minced"},
-        {"amount": "1 tsp", "ingredients": "lemon zest"},
-        {"amount": "2 tbsp", "ingredients": "lemon juice"},
-        {"amount": "1/4 cup", "ingredients": "chopped fresh parsley"},
-        {"amount": "1/2 tsp", "ingredients": "salt"},
-        {"amount": "1/4 tsp", "ingredients": "black pepper"}
+        {
+          "amount": "4",
+          "ingredients": "salmon fillets"
+        },
+        {
+          "amount": "2 tbsp",
+          "ingredients": "olive oil"
+        },
+        {
+          "amount": "2 cloves",
+          "ingredients": "garlic, minced"
+        },
+        {
+          "amount": "1 tsp",
+          "ingredients": "lemon zest"
+        },
+        {
+          "amount": "2 tbsp",
+          "ingredients": "lemon juice"
+        },
+        {
+          "amount": "1/4 cup",
+          "ingredients": "chopped fresh parsley"
+        },
+        {
+          "amount": "1/2 tsp",
+          "ingredients": "salt"
+        },
+        {
+          "amount": "1/4 tsp",
+          "ingredients": "black pepper"
+        }
       ],
       "instructions": [
         "Preheat the grill to medium-high heat.",
@@ -118,18 +234,54 @@
     {
       "name": "Classic Beef Lasagna",
       "ingredients": [
-        {"amount": "9", "ingredients": "lasagna noodles"},
-        {"amount": "1 lb", "ingredients": "ground beef"},
-        {"amount": "1/2 cup", "ingredients": "chopped onion"},
-        {"amount": "2 cloves", "ingredients": "garlic, minced"},
-        {"amount": "1 can (28 oz)", "ingredients": "crushed tomatoes"},
-        {"amount": "1 tsp", "ingredients": "dried basil"},
-        {"amount": "1 tsp", "ingredients": "dried oregano"},
-        {"amount": "1/2 tsp", "ingredients": "salt"},
-        {"amount": "1/4 tsp", "ingredients": "black pepper"},
-        {"amount": "2 cups", "ingredients": "ricotta cheese"},
-        {"amount": "1 cup", "ingredients": "shredded mozzarella cheese"},
-        {"amount": "1/2 cup", "ingredients": "grated Parmesan cheese"}
+        {
+          "amount": "9",
+          "ingredients": "lasagna noodles"
+        },
+        {
+          "amount": "1 lb",
+          "ingredients": "ground beef"
+        },
+        {
+          "amount": "1/2 cup",
+          "ingredients": "chopped onion"
+        },
+        {
+          "amount": "2 cloves",
+          "ingredients": "garlic, minced"
+        },
+        {
+          "amount": "1 can (28 oz)",
+          "ingredients": "crushed tomatoes"
+        },
+        {
+          "amount": "1 tsp",
+          "ingredients": "dried basil"
+        },
+        {
+          "amount": "1 tsp",
+          "ingredients": "dried oregano"
+        },
+        {
+          "amount": "1/2 tsp",
+          "ingredients": "salt"
+        },
+        {
+          "amount": "1/4 tsp",
+          "ingredients": "black pepper"
+        },
+        {
+          "amount": "2 cups",
+          "ingredients": "ricotta cheese"
+        },
+        {
+          "amount": "1 cup",
+          "ingredients": "shredded mozzarella cheese"
+        },
+        {
+          "amount": "1/2 cup",
+          "ingredients": "grated Parmesan cheese"
+        }
       ],
       "instructions": [
         "Preheat the oven to 375°F.",
@@ -148,15 +300,42 @@
     {
       "name": "Creamy Chicken Alfredo",
       "ingredients": [
-        {"amount": "8 oz", "ingredients": "fettuccine pasta"},
-        {"amount": "2 cups", "ingredients": "cooked chicken, diced"},
-        {"amount": "1/2 cup", "ingredients": "butter"},
-        {"amount": "2 cups", "ingredients": "heavy cream"},
-        {"amount": "1 cup", "ingredients": "grated Parmesan cheese"},
-        {"amount": "1/4 tsp", "ingredients": "ground black pepper"},
-        {"amount": "1/2 tsp", "ingredients": "salt"},
-        {"amount": "2 cloves", "ingredients": "garlic, minced"},
-        {"amount": "1/4 cup", "ingredients": "chopped fresh parsley"}
+        {
+          "amount": "8 oz",
+          "ingredients": "fettuccine pasta"
+        },
+        {
+          "amount": "2 cups",
+          "ingredients": "cooked chicken, diced"
+        },
+        {
+          "amount": "1/2 cup",
+          "ingredients": "butter"
+        },
+        {
+          "amount": "2 cups",
+          "ingredients": "heavy cream"
+        },
+        {
+          "amount": "1 cup",
+          "ingredients": "grated Parmesan cheese"
+        },
+        {
+          "amount": "1/4 tsp",
+          "ingredients": "ground black pepper"
+        },
+        {
+          "amount": "1/2 tsp",
+          "ingredients": "salt"
+        },
+        {
+          "amount": "2 cloves",
+          "ingredients": "garlic, minced"
+        },
+        {
+          "amount": "1/4 cup",
+          "ingredients": "chopped fresh parsley"
+        }
       ],
       "instructions": [
         "Cook fettuccine pasta according to package instructions; drain and set aside.",
@@ -173,18 +352,54 @@
     {
       "name": "Vegetable Stir-Fry",
       "ingredients": [
-        {"amount": "2 cups", "ingredients": "broccoli florets"},
-        {"amount": "1 cup", "ingredients": "sliced carrots"},
-        {"amount": "1 cup", "ingredients": "sliced bell peppers"},
-        {"amount": "1 cup", "ingredients": "snow peas"},
-        {"amount": "1/2 cup", "ingredients": "sliced mushrooms"},
-        {"amount": "2 cloves", "ingredients": "garlic, minced"},
-        {"amount": "1/4 cup", "ingredients": "soy sauce"},
-        {"amount": "1 tbsp", "ingredients": "sesame oil"},
-        {"amount": "1 tbsp", "ingredients": "cornstarch"},
-        {"amount": "2 tbsp", "ingredients": "water"},
-        {"amount": "2 tbsp", "ingredients": "vegetable oil"},
-        {"amount": "2 cups", "ingredients": "cooked rice, for serving"}
+        {
+          "amount": "2 cups",
+          "ingredients": "broccoli florets"
+        },
+        {
+          "amount": "1 cup",
+          "ingredients": "sliced carrots"
+        },
+        {
+          "amount": "1 cup",
+          "ingredients": "sliced bell peppers"
+        },
+        {
+          "amount": "1 cup",
+          "ingredients": "snow peas"
+        },
+        {
+          "amount": "1/2 cup",
+          "ingredients": "sliced mushrooms"
+        },
+        {
+          "amount": "2 cloves",
+          "ingredients": "garlic, minced"
+        },
+        {
+          "amount": "1/4 cup",
+          "ingredients": "soy sauce"
+        },
+        {
+          "amount": "1 tbsp",
+          "ingredients": "sesame oil"
+        },
+        {
+          "amount": "1 tbsp",
+          "ingredients": "cornstarch"
+        },
+        {
+          "amount": "2 tbsp",
+          "ingredients": "water"
+        },
+        {
+          "amount": "2 tbsp",
+          "ingredients": "vegetable oil"
+        },
+        {
+          "amount": "2 cups",
+          "ingredients": "cooked rice, for serving"
+        }
       ],
       "instructions": [
         "In a small bowl, whisk together soy sauce, sesame oil, cornstarch, and water to make the sauce.",
@@ -200,15 +415,42 @@
     {
       "name": "Classic Beef Burgers",
       "ingredients": [
-        {"amount": "1 lb", "ingredients": "ground beef"},
-        {"amount": "1", "ingredients": "egg"},
-        {"amount": "1/4 cup", "ingredients": "bread crumbs"},
-        {"amount": "1/4 cup", "ingredients": "chopped onion"},
-        {"amount": "1 clove", "ingredients": "garlic, minced"},
-        {"amount": "1 tbsp", "ingredients": "Worcestershire sauce"},
-        {"amount": "1/2 tsp", "ingredients": "salt"},
-        {"amount": "1/4 tsp", "ingredients": "black pepper"},
-        {"amount": "4", "ingredients": "hamburger buns, split and toasted"}
+        {
+          "amount": "1 lb",
+          "ingredients": "ground beef"
+        },
+        {
+          "amount": "1",
+          "ingredients": "egg"
+        },
+        {
+          "amount": "1/4 cup",
+          "ingredients": "bread crumbs"
+        },
+        {
+          "amount": "1/4 cup",
+          "ingredients": "chopped onion"
+        },
+        {
+          "amount": "1 clove",
+          "ingredients": "garlic, minced"
+        },
+        {
+          "amount": "1 tbsp",
+          "ingredients": "Worcestershire sauce"
+        },
+        {
+          "amount": "1/2 tsp",
+          "ingredients": "salt"
+        },
+        {
+          "amount": "1/4 tsp",
+          "ingredients": "black pepper"
+        },
+        {
+          "amount": "4",
+          "ingredients": "hamburger buns, split and toasted"
+        }
       ],
       "instructions": [
         "In a large bowl, combine ground beef, egg, bread crumbs, chopped onion, minced garlic, Worcestershire sauce, salt, and black pepper.",
@@ -218,7 +460,8 @@
         "Serve burgers on toasted buns with desired toppings."
       ],
       "id": 9
-    }],
+    }
+  ],
   "collections": [
       {
         "name": "Thai Cuisine",

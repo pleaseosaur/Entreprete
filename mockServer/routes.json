@@ -2,5 +2,6 @@
     "/api/*": "/$1",
     "/recipes": "/recipes",
     "/:resource/:id/show": "/:resource/:id",
-    "/:resource/show": "/:resource"
+    "/:resource/show": "/:resource",
+    "/:resource": "/:resource"
   }
