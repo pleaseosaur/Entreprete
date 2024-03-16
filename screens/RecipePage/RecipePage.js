@@ -15,7 +15,7 @@ const RecipePage = ({navigation, route}) => {
   const recipeId = recipeData.recipes.id;
   const recipeIngredients = recipeData.recipes.ingredients;
   const recipeInstructions = recipeData.recipes.instructions;
-  console.log('recipeId', recipeId);
+
   useEffect(() => {
     setEditedIngredients(recipeIngredients);
     setEditedInstructions(recipeInstructions);

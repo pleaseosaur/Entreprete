@@ -14,8 +14,8 @@ const Collections = ({navigation}) => {
   const goBack = () => {
     navigation.goBack();
   };
-  const navigateToRecipe = (recipes, name) => {
-    navigation.navigate('RecipeBook', {recipesIds: recipes, isCollection: true, pageTitle: name});
+  const navigateToCollection = (recipes, name, id) => {
+    navigation.navigate('RecipeBook', {recipesIds: recipes, isCollection: true, pageTitle: name, collectionId: id});
   };
 
   const goHome = () => {
@@ -57,7 +57,7 @@ const Collections = ({navigation}) => {
               name={collection.name}
               recipe={collection}
               key={index}
-              onPress={() => navigateToRecipe(collection.recipes, collection.name)}
+              onPress={() => navigateToCollection(collection.recipes, collection.name, collection.id)}
               swipeHandler={() => deleteCollection(index)}
             />
           );
