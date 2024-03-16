@@ -463,50 +463,92 @@
     }
   ],
   "collections": [
-      {
-        "name": "Thai Cuisine",
-        "recipes": [1, 2, 3]
-      },
-      {
-        "name": "Italian Cuisine",
-        "recipes": [4, 5, 6]
-      },
-      {
-        "name": "Mexican Cuisine",
-        "recipes": []
-      },
-      {
-        "name": "American Cuisine",
-        "recipes": [7, 8, 9]
-      },
-      {
-        "name": "Chinese Cuisine",
-        "recipes": []
-
-      },
-      {
-        "name": "Japanese Cuisine",
-        "recipes": []
-      },
-      {
-        "name": "Korean Cuisine",
-        "recipes": []
-      }
-    ],
-    "mealplans": [
-      {
-        "id": 1,
-        "name": "Weekly Meal Plan",
-        "length": 7,
-        "time": "days",
-        "recipes": [1, 2, 3, 4, 5, 6, 7]
-      },
-      {
-        "id": 2,
-        "name": "Quick and Easy",
-        "length": 3,
-        "time": "days",
-        "recipes": [8, 9, 1]
-      }
-    ]
+    {
+      "name": "Thai Cuisine",
+      "recipes": [
+        1,
+        2,
+        3
+      ],
+      "id": 201
+    },
+    {
+      "name": "Italian Cuisine",
+      "recipes": [
+        4,
+        5,
+        6
+      ],
+      "id": 202
+    },
+    {
+      "name": "Mexican Cuisine",
+      "recipes": [],
+      "id": 203
+    },
+    {
+      "name": "American Cuisine",
+      "recipes": [
+        7,
+        8,
+        9
+      ],
+      "id": 204
+    },
+    {
+      "name": "Chinese Cuisine",
+      "recipes": [],
+      "id": 205
+    },
+    {
+      "name": "Japanese Cuisine",
+      "recipes": [],
+      "id": 206
+    },
+    {
+      "name": "Korean Cuisine",
+      "recipes": [],
+      "id": 207
+    }
+  ],
+  "mealplans": [
+    {
+      "id": 1,
+      "name": "Weekly Meal Plan",
+      "length": 7,
+      "time": "days",
+      "recipes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Quick and Easy",
+      "length": 3,
+      "time": "days",
+      "recipes": [
+        8,
+        9,
+        1
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": 401,
+      "startDate": "2024-03-26",
+      "mealplanId": 2
+    },
+    {
+      "id": 402,
+      "startDate": "2024-03-18",
+      "mealplanId": 1
+    }
+  ]
 }

@@ -3,5 +3,6 @@
     "/recipes": "/recipes",
     "/:resource/:id/show": "/:resource/:id",
     "/:resource/show": "/:resource",
-    "/:resource": "/:resource"
+    "/:resource": "/:resource",
+    "/:resource/:id": "/:resource/:id"
   }
