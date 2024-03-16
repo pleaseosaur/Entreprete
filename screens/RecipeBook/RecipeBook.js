@@ -73,6 +73,10 @@ const RecipeBook = ({navigation, route}) => {
     navigation.navigate('Home');
   };
 
+  const edit = () => {
+    navigation.navigate('EditCollection', {recipesIds: recipesIds, newCollection: false, pageTitle: pageTitle, collectionTitle: pageTitle});
+  }
+
   const deleteRecipe = index => {
     setRecipes(prevRecipes => {
       const newRecipes = prevRecipes.filter((_, i) => i !== index);
@@ -109,7 +113,7 @@ const RecipeBook = ({navigation, route}) => {
       <View style={style.recipeSearchContainer}>
         <View style={style.buttonsContainer}>
           <View>
-            <SquareButton icon={<PlusCircle />}></SquareButton>
+            <SquareButton handler={isCollection ? edit : null} icon={<PlusCircle />}></SquareButton>
           </View>
           <View>
             <SquareButton handler={goHome} icon={<Home />}></SquareButton>

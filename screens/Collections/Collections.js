@@ -22,6 +22,10 @@ const Collections = ({navigation}) => {
     navigation.navigate('Home');
   };
 
+  const addCollection = () => {
+    navigation.navigate('EditCollection', {newCollection: true});
+  };
+
   const handleSearch = async (text) => {
     if (text === '') {
       setCollections(testData.collections);
@@ -62,7 +66,7 @@ const Collections = ({navigation}) => {
       <View style={style.collectionsSearchContainer}>
         <View style={style.buttonsContainer}>
           <View>
-            <SquareButton icon={<PlusCircle />}></SquareButton>
+            <SquareButton handler={addCollection} icon={<PlusCircle />}></SquareButton>
           </View>
           <View>
             <SquareButton handler={goHome} icon={<Home />}></SquareButton>
