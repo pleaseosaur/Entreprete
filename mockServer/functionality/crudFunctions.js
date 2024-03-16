@@ -9,8 +9,8 @@ import axios from 'axios';
 */
 
 /***************************************************
-*                   GENERIC
-****************************************************/
+ *                   GENERIC
+ ****************************************************/
 
 //generic create function
 const create = async (url, data) => {
@@ -94,8 +94,8 @@ const DeleteCollection = async (id) => await remove(`http://10.0.2.2:3000/collec
 
 
 /***************************************************
-*                  MEAL PLANS
-****************************************************/
+ *                  MEAL PLANS
+ ****************************************************/
 //get all mealplans
 const GetMealPlans = async () => await read(`http://10.0.2.2:3000/mealplans`);
 
@@ -113,8 +113,8 @@ const UpdateMealPlan = async (name, recipes, length, time, id) => await update(`
 const DeleteMealPlan = async (id) => await remove(`http://10.0.2.2:3000/mealplans/${id}`);
 
 /***************************************************
-*                   EVENTS
-****************************************************/
+ *                   EVENTS
+ ****************************************************/
 //get all events
 const GetEvents = async () => await read(`http://10.0.2.2:3000/events`);
 
@@ -130,7 +130,7 @@ const UpdateEvent = async (startDate, mealplanId, id) => await update(`http://10
 //delete a event
 const DeleteEvent = async (id) => await remove(`http://10.0.2.2:3000/events/${id}`);
 
-export { 
+export {
   GetRecipes,
   GetRecipeByID,
   CreateRecipe,

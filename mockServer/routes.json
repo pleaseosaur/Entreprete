@@ -5,4 +5,4 @@
     "/:resource/show": "/:resource",
     "/:resource": "/:resource",
     "/:resource/:id": "/:resource/:id"
-  }
+}

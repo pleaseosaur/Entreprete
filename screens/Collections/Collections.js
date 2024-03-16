@@ -33,7 +33,7 @@ const Collections = ({navigation}) => {
       return;
     }
     const filteredCollections = testData.collections.filter(collection =>
-      collection.name.toLowerCase().includes(text.toLowerCase()),
+        collection.name.toLowerCase().includes(text.toLowerCase()),
     );
     setCollections(filteredCollections);
   };
@@ -52,40 +52,40 @@ const Collections = ({navigation}) => {
   };
 
   return (
-    <BaseScreen
-      title={'Collections'}
-      canEdit={false}
-      canGoBack={true}
-      goBack={goBack}>
-      <ScrollView style={style.scrollContainer}>
-        {collections.map((collection, index) => {
-          return (
-            <ListItem
-              name={collection.name}
-              recipe={collection}
-              key={index}
-              onPress={() => navigateToCollection(collection.recipes, collection.name, collection.id)}
-              swipeHandler={() => deleteCollection(index, collection.id)}
-            />
-          );
-        })}
-      </ScrollView>
-      <View style={style.collectionsSearchContainer}>
-        <View style={style.buttonsContainer}>
-          <View>
-            <SquareButton handler={addCollection} icon={<PlusCircle />}></SquareButton>
+      <BaseScreen
+          title={'Collections'}
+          canEdit={false}
+          canGoBack={true}
+          goBack={goBack}>
+        <ScrollView style={style.scrollContainer}>
+          {collections.map((collection, index) => {
+            return (
+                <ListItem
+                    name={collection.name}
+                    recipe={collection}
+                    key={index}
+                    onPress={() => navigateToCollection(collection.recipes, collection.name, collection.id)}
+                    swipeHandler={() => deleteCollection(index, collection.id)}
+                />
+            );
+          })}
+        </ScrollView>
+        <View style={style.collectionsSearchContainer}>
+          <View style={style.buttonsContainer}>
+            <View>
+              <SquareButton handler={addCollection} icon={<PlusCircle />}></SquareButton>
+            </View>
+            <View>
+              <SquareButton handler={goHome} icon={<Home />}></SquareButton>
+            </View>
+            <View style={style.buttonPlaceHolder}></View>
           </View>
+          {/* Search bar */}
           <View>
-            <SquareButton handler={goHome} icon={<Home />}></SquareButton>
+            <SearchBar placeholderText={"Search collections"} handleSearch={handleSearch} />
           </View>
-          <View style={style.buttonPlaceHolder}></View>
         </View>
-        {/* Search bar */}
-        <View>
-          <SearchBar placeholderText={"Search collections"} handleSearch={handleSearch} />
-        </View>
-      </View>
-    </BaseScreen>
+      </BaseScreen>
   );
 };
 

@@ -19,7 +19,7 @@ const RecipeBook = ({navigation, route}) => {
 
   if (recipesIds) {
     originalRecipes = testData.recipes.filter(recipe =>
-      recipesIds.includes(recipe.id),
+        recipesIds.includes(recipe.id),
     );
   } else {
     originalRecipes = testData.recipes;
@@ -35,7 +35,7 @@ const RecipeBook = ({navigation, route}) => {
     if (recipesIds && recipesIds.length > 0) {
       // Check if recipesIds exists and has length
       originalRecipes = testData.recipes.filter(recipe =>
-        recipesIds.includes(recipe.id),
+          recipesIds.includes(recipe.id),
       );
       setRecipes(originalRecipes);
     } else {
@@ -53,7 +53,7 @@ const RecipeBook = ({navigation, route}) => {
 
     if(isCollection) {
       const filteredRecipes = originalRecipes.filter(recipe =>
-        recipe.name.toLowerCase().includes(text.toLowerCase()),
+          recipe.name.toLowerCase().includes(text.toLowerCase()),
       );
       setRecipes(filteredRecipes);
     }
@@ -97,47 +97,47 @@ const RecipeBook = ({navigation, route}) => {
   };
 
   return (
-    <BaseScreen
-      title={pageTitle}
-      canEdit={false}
-      canGoBack={true}
-      goBack={goBack}>
-      {recipes.length === 0 ? (
-        <View style={style.emptyRecipes}>
-          <Text>No recipes found</Text>
-        </View>
-      ) : (
-        <ScrollView style={style.scrollContainer}>
-          {recipes.map((recipe, index) => {
-            return (
-              <ListItem
-                name={recipe.name}
-                recipe={recipe}
-                key={index}
-                onPress={() => navigateToRecipePage(recipe)}
-                swipeHandler={() => deleteRecipe(index, recipe.id)}
-              />
-            );
-          })}
-        </ScrollView>
-      )}
+      <BaseScreen
+          title={pageTitle}
+          canEdit={false}
+          canGoBack={true}
+          goBack={goBack}>
+        {recipes.length === 0 ? (
+            <View style={style.emptyRecipes}>
+              <Text>No recipes found</Text>
+            </View>
+        ) : (
+            <ScrollView style={style.scrollContainer}>
+              {recipes.map((recipe, index) => {
+                return (
+                    <ListItem
+                        name={recipe.name}
+                        recipe={recipe}
+                        key={index}
+                        onPress={() => navigateToRecipePage(recipe)}
+                        swipeHandler={() => deleteRecipe(index, recipe.id)}
+                    />
+                );
+              })}
+            </ScrollView>
+        )}
 
-      <View style={style.recipeSearchContainer}>
-        <View style={style.buttonsContainer}>
-          <View>
-            <SquareButton handler={isCollection ? editCollection : createRecipe} icon={<PlusCircle />}></SquareButton>
+        <View style={style.recipeSearchContainer}>
+          <View style={style.buttonsContainer}>
+            <View>
+              <SquareButton handler={isCollection ? editCollection : createRecipe} icon={<PlusCircle />}></SquareButton>
+            </View>
+            <View>
+              <SquareButton handler={goHome} icon={<Home />}></SquareButton>
+            </View>
+            <View style={style.buttonPlaceHolder}></View>
           </View>
+          {/* Search bar */}
           <View>
-            <SquareButton handler={goHome} icon={<Home />}></SquareButton>
+            <SearchBar handleSearch={handleSearch} test="testing" />
           </View>
-          <View style={style.buttonPlaceHolder}></View>
         </View>
-        {/* Search bar */}
-        <View>
-          <SearchBar handleSearch={handleSearch} test="testing" />
-        </View>
-      </View>
-    </BaseScreen>
+      </BaseScreen>
   );
 };
 

@@ -39,7 +39,7 @@ const RecipePage = ({navigation, route}) => {
 
       // Find the recipe to update
       const recipeIndex = recipesData.data.recipes.findIndex(
-        recipe => recipe.id === recipeId,
+          recipe => recipe.id === recipeId,
       );
       if (recipeIndex === -1) {
         console.error('Recipe not found.');
@@ -78,103 +78,103 @@ const RecipePage = ({navigation, route}) => {
   };
 
   return (
-    <BaseScreen
-      title={recipeName}
-      canEdit={true}
-      canGoBack={true}
-      goBack={goBack}
-      onToggleEdit={onToggleEdit}>
-      <ScrollView style={style.scrollContainer}>
-        {/* Ingredients */}
-        <View style={style.ingredientContainer}>
-          <Text style={style.itemTitle}>Ingredients</Text>
-          {recipeIngredients.map((ingredient, index) => (
-            <View key={index} style={style.ingredient}>
-              <View style={style.ingredientAmountContainer}>
-                {isEditing ? (
-                  <TextInput
-                    value={
-                      editedIngredients[index]?.amount || ingredient.amount
-                    }
-                    onChangeText={text => {
-                      const newIngredients = [...editedIngredients];
-                      newIngredients[index] = {
-                        ...newIngredients[index],
-                        amount: text,
-                      };
-                      setEditedIngredients(newIngredients);
-                    }}
-                  />
+      <BaseScreen
+          title={recipeName}
+          canEdit={true}
+          canGoBack={true}
+          goBack={goBack}
+          onToggleEdit={onToggleEdit}>
+        <ScrollView style={style.scrollContainer}>
+          {/* Ingredients */}
+          <View style={style.ingredientContainer}>
+            <Text style={style.itemTitle}>Ingredients</Text>
+            {recipeIngredients.map((ingredient, index) => (
+                <View key={index} style={style.ingredient}>
+                  <View style={style.ingredientAmountContainer}>
+                    {isEditing ? (
+                        <TextInput
+                            value={
+                                editedIngredients[index]?.amount || ingredient.amount
+                            }
+                            onChangeText={text => {
+                              const newIngredients = [...editedIngredients];
+                              newIngredients[index] = {
+                                ...newIngredients[index],
+                                amount: text,
+                              };
+                              setEditedIngredients(newIngredients);
+                            }}
+                        />
+                    ) : (
+                        <Text style={style.ingredientAmount}>
+                          {ingredient.amount}
+                        </Text>
+                    )}
+                  </View>
+                  <View style={style.ingredientNameContainer}>
+                    {isEditing ? (
+                        <TextInput
+                            value={
+                                editedIngredients[index]?.ingredients ||
+                                ingredient.ingredients
+                            }
+                            onChangeText={text => {
+                              const newIngredients = [...editedIngredients];
+                              newIngredients[index] = {
+                                ...newIngredients[index],
+                                ingredients: text,
+                              };
+                              console.log('newIngredients', newIngredients[index]);
+                              setEditedIngredients(newIngredients);
+                            }}
+                        />
+                    ) : (
+                        <Text style={style.ingredientName}>
+                          {ingredient.ingredients}
+                        </Text>
+                    )}
+                  </View>
+                </View>
+            ))}
+          </View>
+
+          {/* Instructions */}
+          <View style={style.instructionsContainer}>
+            <Text style={style.itemTitle}>Instructions</Text>
+            {recipeInstructions.map((instruction, index) =>
+                isEditing ? (
+                    <TextInput
+                        key={index}
+                        multiline={true}
+                        value={isEditing ? editedInstructions[index] : instruction}
+                        onChangeText={text => {
+                          const newInstructions = [...editedInstructions];
+                          newInstructions[index] = text;
+                          setEditedInstructions(newInstructions);
+                        }}
+                    />
                 ) : (
-                  <Text style={style.ingredientAmount}>
-                    {ingredient.amount}
-                  </Text>
-                )}
-              </View>
-              <View style={style.ingredientNameContainer}>
-                {isEditing ? (
-                  <TextInput
-                    value={
-                      editedIngredients[index]?.ingredients ||
-                      ingredient.ingredients
-                    }
-                    onChangeText={text => {
-                      const newIngredients = [...editedIngredients];
-                      newIngredients[index] = {
-                        ...newIngredients[index],
-                        ingredients: text,
-                      };
-                      console.log('newIngredients', newIngredients[index]);
-                      setEditedIngredients(newIngredients);
-                    }}
-                  />
-                ) : (
-                  <Text style={style.ingredientName}>
-                    {ingredient.ingredients}
-                  </Text>
-                )}
-              </View>
+                    <Text key={index} style={style.instructionText}>
+                      {index + 1}.{instruction}
+                    </Text>
+                ),
+            )}
+          </View>
+        </ScrollView>
+
+        {/* Save and Cancel buttons */}
+        {isEditing && (
+            <View>
+              <PillButton text={'Save'} handler={onSave} />
+              <PillButton text={'Cancel'} handler={onCancel} />
             </View>
-          ))}
-        </View>
+        )}
 
-        {/* Instructions */}
-        <View style={style.instructionsContainer}>
-          <Text style={style.itemTitle}>Instructions</Text>
-          {recipeInstructions.map((instruction, index) =>
-            isEditing ? (
-              <TextInput
-                key={index}
-                multiline={true}
-                value={isEditing ? editedInstructions[index] : instruction}
-                onChangeText={text => {
-                  const newInstructions = [...editedInstructions];
-                  newInstructions[index] = text;
-                  setEditedInstructions(newInstructions);
-                }}
-              />
-            ) : (
-              <Text key={index} style={style.instructionText}>
-                {index + 1}.{instruction}
-              </Text>
-            ),
-          )}
+        {/* Other components */}
+        <View style={style.buttonsContainer}>
+          <SquareButton handler={goHome} icon={<Home />} />
         </View>
-      </ScrollView>
-
-      {/* Save and Cancel buttons */}
-      {isEditing && (
-        <View>
-          <PillButton text={'Save'} handler={onSave} />
-          <PillButton text={'Cancel'} handler={onCancel} />
-        </View>
-      )}
-
-      {/* Other components */}
-      <View style={style.buttonsContainer}>
-        <SquareButton handler={goHome} icon={<Home />} />
-      </View>
-    </BaseScreen>
+      </BaseScreen>
   );
 };
 
