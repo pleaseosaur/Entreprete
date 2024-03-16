@@ -45,7 +45,7 @@ const update = async (url, data) => {
 //generic delete function
 const remove = async (url) => {
   try {
-    const response = await axios.delete(url, data);
+    const response = await axios.delete(url);
     return response.data;
   } catch (error) {
     console.log(error);

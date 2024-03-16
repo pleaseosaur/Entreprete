@@ -7,6 +7,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import ListItem from '../../components/ListItem/ListItem';
 import testData from '../../mockServer/db.json';
+import { DeleteCollection } from '../../mockServer/functionality/crudFunctions';
 
 const Collections = ({navigation}) => {
   const [collections, setCollections] = useState(testData.collections);
@@ -37,11 +38,17 @@ const Collections = ({navigation}) => {
     setCollections(filteredCollections);
   };
 
-  const deleteCollection = index => {
+  const deleteCollection = async (index, id) => {
     setCollections(prev => {
-        const newPlans = prev.filter((_, i) => i !== index);
-        return newPlans;
+      const newPlans = prev.filter((_, i) => i !== index);
+      return newPlans;
     });
+
+    try {
+      const result = await DeleteCollection(id);
+    } catch(e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -58,7 +65,7 @@ const Collections = ({navigation}) => {
               recipe={collection}
               key={index}
               onPress={() => navigateToCollection(collection.recipes, collection.name, collection.id)}
-              swipeHandler={() => deleteCollection(index)}
+              swipeHandler={() => deleteCollection(index, collection.id)}
             />
           );
         })}

@@ -8,6 +8,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import testData from '../../mockServer/db.json';
 import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
+import { DeleteRecipe } from '../../mockServer/functionality/crudFunctions';
 
 const RecipeBook = ({navigation, route}) => {
   const collectionId = route.params?.collectionId;
@@ -82,11 +83,17 @@ const RecipeBook = ({navigation, route}) => {
     //TODO: navigate to recipe creation page
   }
 
-  const deleteRecipe = index => {
+  const deleteRecipe = async (index, id) => {
     setRecipes(prevRecipes => {
       const newRecipes = prevRecipes.filter((_, i) => i !== index);
       return newRecipes;
     });
+
+    try {
+      const result = await DeleteRecipe(id);
+    } catch(e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -108,7 +115,7 @@ const RecipeBook = ({navigation, route}) => {
                 recipe={recipe}
                 key={index}
                 onPress={() => navigateToRecipePage(recipe)}
-                swipeHandler={() => deleteRecipe(index)}
+                swipeHandler={() => deleteRecipe(index, recipe.id)}
               />
             );
           })}
