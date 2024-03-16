@@ -10,17 +10,15 @@ import testData from '../../mockServer/db.json';
 import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
 import { HeaderText } from '../../components/Text';
 import palette from '../../styles/Common.styles';
-import {CreateCollection} from '../../mockServer/functionality/crudFunctions';
+import {CreateCollection, UpdateCollection} from '../../mockServer/functionality/crudFunctions';
 
 const EditCollection = ({navigation, route}) => {
+  const collectionId = route.params?.collectionId;
   const recipesIds = route.params?.recipesIds;
-  // const limitSearch = route.params?.limitSearch || false; //set to true to search within the collection only
   const newCollection = (route.params?.newCollection == true) ? true : false; //set to false to edit an existing collection
   const pageTitle = newCollection ? "Create Collection" : route.params?.pageTitle;
   let originalRecipes = [];
-  // const [collectionName, setCollectionName] = useState('');
   const [collectionName, setCollectionName] = useState((route.params?.newCollection == true) ? '' : route.params?.collectionTitle);
-  // const [collectionRecipes, setCollectionRecipes] = useState((route.params?.newCollection == true) ? [] : route.params?.recipesIds);
   const [collectionRecipes, setCollectionRecipes] = useState([]);
 
   if (recipesIds) {
@@ -48,17 +46,8 @@ const EditCollection = ({navigation, route}) => {
       setRecipes(originalRecipes);
       return;
     }
-
-    // if(limitSearch) {
-    //   const filteredRecipes = originalRecipes.filter(recipe =>
-    //     recipe.name.toLowerCase().includes(text.toLowerCase()),
-    //   );
-    //   setRecipes(filteredRecipes);
-    // }
-    // else {
       const searchResult = await RecipeSearch(text);
       setRecipes(searchResult);
-    // }
   };
 
   const goBack = () => {
@@ -79,21 +68,19 @@ const EditCollection = ({navigation, route}) => {
       });
   };
 
-  const submitCollection = async (name, recipes) => {
+  const submitCollection = async () => {
     //submit form
     try {
-      if(newCollection) {
-        const result = await CreateCollection(collectionName, collectionRecipes);
-      } else {
-        //TODO: update the collection
-      }
+      const result = newCollection ?
+        await CreateCollection(collectionName, collectionRecipes)
+        : await UpdateCollection(collectionName, collectionRecipes, collectionId);
 
       //reset states
       setCollectionName('');
       setCollectionRecipes([]);
 
       //navigate to new collection page
-      navigation.navigate('RecipeBook', {recipesIds: recipes, isCollection: true, pageTitle: name});
+      navigation.navigate('RecipeBook', {recipesIds: result.recipes, isCollection: true, pageTitle: result.name, collectionId: result.id});
     }
     catch (error) {
       console.log(error);
@@ -105,7 +92,6 @@ const EditCollection = ({navigation, route}) => {
   }
 
   const RadioBtn = (recipeId) => {
-    console.log(recipeId);
     const [checked, setChecked] = useState(collectionRecipes.includes(recipeId.recipeId) || false);
     const [init, setInit] = useState(true);
 
@@ -190,7 +176,7 @@ const EditCollection = ({navigation, route}) => {
               null :
               <PillButton text={"  Cancel  "} handler={cancelEdit} style={[style.submitButton, {backgroundColor: palette.light_grey}]}></PillButton>
             }
-            <PillButton text={newCollection ? "Create" : "Save Changes"} handler={() => submitCollection(collectionName, collectionRecipes)} style={style.submitButton}></PillButton>
+            <PillButton text={newCollection ? "Create" : "Save Changes"} handler={submitCollection} style={style.submitButton}></PillButton>
         </View>
       </View>
     </BaseScreen>

@@ -8,8 +8,10 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import testData from '../../mockServer/db.json';
 import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
+import { DeleteRecipe } from '../../mockServer/functionality/crudFunctions';
 
 const RecipeBook = ({navigation, route}) => {
+  const collectionId = route.params?.collectionId;
   const recipesIds = route.params?.recipesIds;
   const isCollection = route.params?.isCollection || false; //set to true to search within the collection only
   const pageTitle = route.params?.pageTitle || 'Recipe Book';
@@ -35,7 +37,6 @@ const RecipeBook = ({navigation, route}) => {
       originalRecipes = testData.recipes.filter(recipe =>
         recipesIds.includes(recipe.id),
       );
-      console.log('originalRecipes', originalRecipes);
       setRecipes(originalRecipes);
     } else {
       // If no recipe IDs are provided, set all recipes
@@ -73,20 +74,26 @@ const RecipeBook = ({navigation, route}) => {
     navigation.navigate('Home');
   };
 
-  const createCollection = () => {
+  const editCollection = () => {
     //navigate to create collection screen
-    navigation.navigate('EditCollection', {recipesIds: recipesIds, newCollection: false, pageTitle: pageTitle, collectionTitle: pageTitle});
+    navigation.navigate('EditCollection', {recipesIds: recipesIds, newCollection: false, pageTitle: pageTitle, collectionTitle: pageTitle, collectionId: collectionId});
   }
 
   const createRecipe = () => {
     //TODO: navigate to recipe creation page
   }
 
-  const deleteRecipe = index => {
+  const deleteRecipe = async (index, id) => {
     setRecipes(prevRecipes => {
       const newRecipes = prevRecipes.filter((_, i) => i !== index);
       return newRecipes;
     });
+
+    try {
+      const result = await DeleteRecipe(id);
+    } catch(e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -108,7 +115,7 @@ const RecipeBook = ({navigation, route}) => {
                 recipe={recipe}
                 key={index}
                 onPress={() => navigateToRecipePage(recipe)}
-                swipeHandler={() => deleteRecipe(index)}
+                swipeHandler={() => deleteRecipe(index, recipe.id)}
               />
             );
           })}
@@ -118,7 +125,7 @@ const RecipeBook = ({navigation, route}) => {
       <View style={style.recipeSearchContainer}>
         <View style={style.buttonsContainer}>
           <View>
-            <SquareButton handler={isCollection ? createCollection : createRecipe} icon={<PlusCircle />}></SquareButton>
+            <SquareButton handler={isCollection ? editCollection : createRecipe} icon={<PlusCircle />}></SquareButton>
           </View>
           <View>
             <SquareButton handler={goHome} icon={<Home />}></SquareButton>
