@@ -13,9 +13,7 @@ const MainNavigation = () => {
     return (
     <Stack.Navigator
       screenOptions={{header: () => null, headerShown: false}}
-      // initialRouteName={'Home'}>
-      //TODO: change back before pushing
-      initialRouteName={'EditCollection'}> 
+      initialRouteName={'Home'}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="RecipeBook" component={RecipeBook} />
         <Stack.Screen name="Collections" component={Collections} />

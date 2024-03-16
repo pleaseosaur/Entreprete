@@ -509,33 +509,6 @@
       "name": "Korean Cuisine",
       "recipes": [],
       "id": 207
-    },
-    {
-      "name": "Foo",
-      "recipes": [
-        1,
-        2,
-        4
-      ],
-      "id": 208
-    },
-    {
-      "name": "Bar",
-      "recipes": [],
-      "id": 209
-    },
-    {
-      "name": "Bar 2",
-      "recipes": [
-        1,
-        2,
-        4,
-        5,
-        6,
-        9,
-        8
-      ],
-      "id": 210
     }
   ],
   "mealplans": [

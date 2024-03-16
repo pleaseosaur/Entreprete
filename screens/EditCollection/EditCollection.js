@@ -14,11 +14,13 @@ import {CreateCollection} from '../../mockServer/functionality/crudFunctions';
 
 const EditCollection = ({navigation, route}) => {
   const recipesIds = route.params?.recipesIds;
-  const limitSearch = route.params?.limitSearch || false; //set to true to search within the collection only
-  const newCollection = route.params?.newCollection || true; //set to false to edit an existing collection
-  const pageTitle = newCollection ? "Create Collection" : "Edit Collection";
+  // const limitSearch = route.params?.limitSearch || false; //set to true to search within the collection only
+  const newCollection = (route.params?.newCollection == true) ? true : false; //set to false to edit an existing collection
+  const pageTitle = newCollection ? "Create Collection" : route.params?.pageTitle;
   let originalRecipes = [];
-  const [collectionName, setCollectionName] = useState('');
+  // const [collectionName, setCollectionName] = useState('');
+  const [collectionName, setCollectionName] = useState((route.params?.newCollection == true) ? '' : route.params?.collectionTitle);
+  // const [collectionRecipes, setCollectionRecipes] = useState((route.params?.newCollection == true) ? [] : route.params?.recipesIds);
   const [collectionRecipes, setCollectionRecipes] = useState([]);
 
   if (recipesIds) {
@@ -32,22 +34,13 @@ const EditCollection = ({navigation, route}) => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    if (recipesIds === undefined) {
       setRecipes(testData.recipes);
-      return;
-    }
-    if (recipesIds && recipesIds.length > 0) {
-      // Check if recipesIds exists and has length
-      originalRecipes = testData.recipes.filter(recipe =>
-        recipesIds.includes(recipe.id),
-      );
-      console.log('originalRecipes', originalRecipes);
-      setRecipes(originalRecipes);
-    } else {
-      // If no recipe IDs are provided, set all recipes
-      setRecipes([]);
-      originalRecipes = [];
-    }
+
+      if(!newCollection) {
+        setCollectionRecipes(recipesIds);
+      } else {
+        setCollectionRecipes([]);
+      }
   }, [recipesIds]);
 
   const handleSearch = async (text) => {
@@ -56,16 +49,16 @@ const EditCollection = ({navigation, route}) => {
       return;
     }
 
-    if(limitSearch) {
-      const filteredRecipes = originalRecipes.filter(recipe =>
-        recipe.name.toLowerCase().includes(text.toLowerCase()),
-      );
-      setRecipes(filteredRecipes);
-    }
-    else {
+    // if(limitSearch) {
+    //   const filteredRecipes = originalRecipes.filter(recipe =>
+    //     recipe.name.toLowerCase().includes(text.toLowerCase()),
+    //   );
+    //   setRecipes(filteredRecipes);
+    // }
+    // else {
       const searchResult = await RecipeSearch(text);
       setRecipes(searchResult);
-    }
+    // }
   };
 
   const goBack = () => {
@@ -86,21 +79,34 @@ const EditCollection = ({navigation, route}) => {
       });
   };
 
-  const submitCollection = async () => {
+  const submitCollection = async (name, recipes) => {
     //submit form
     try {
-      const result = await CreateCollection(collectionName, collectionRecipes);
-      
+      if(newCollection) {
+        const result = await CreateCollection(collectionName, collectionRecipes);
+      } else {
+        //TODO: update the collection
+      }
+
+      //reset states
+      setCollectionName('');
+      setCollectionRecipes([]);
+
       //navigate to new collection page
-      navigation.navigate('RecipeBook', {recipesIds: collectionRecipes, isCollection: true, pageTitle: collectionName});
+      navigation.navigate('RecipeBook', {recipesIds: recipes, isCollection: true, pageTitle: name});
     }
     catch (error) {
       console.log(error);
     }
   };
 
+  const cancelEdit = () => {
+    goBack();
+  }
+
   const RadioBtn = (recipeId) => {
-    const [checked, setChecked] = useState(collectionRecipes.includes(recipeId.recipeId));
+    console.log(recipeId);
+    const [checked, setChecked] = useState(collectionRecipes.includes(recipeId.recipeId) || false);
     const [init, setInit] = useState(true);
 
     useEffect(() => {
@@ -135,6 +141,7 @@ const EditCollection = ({navigation, route}) => {
       goBack={goBack}>
         <View style={style.container}>
             <View style={style.textEntryContainer}>
+              {newCollection ?
                 <View style={style.titleInput}>
                     <TextInput
                     style={style.input}
@@ -151,6 +158,7 @@ const EditCollection = ({navigation, route}) => {
                     </View>
                     </TouchableWithoutFeedback>
                 </View>
+                : null }
             </View>
             <HeaderText>Add Recipes To Collection</HeaderText>
             {recipes.length === 0 ? (
@@ -178,7 +186,11 @@ const EditCollection = ({navigation, route}) => {
             </View>
         </View>
         <View style={style.bottomButtonContainer}>
-            <PillButton text={newCollection ? "Create" : "Save Changes"} handler={submitCollection} style={style.submitButton}></PillButton>
+            {newCollection ? 
+              null :
+              <PillButton text={"  Cancel  "} handler={cancelEdit} style={[style.submitButton, {backgroundColor: palette.light_grey}]}></PillButton>
+            }
+            <PillButton text={newCollection ? "Create" : "Save Changes"} handler={() => submitCollection(collectionName, collectionRecipes)} style={style.submitButton}></PillButton>
         </View>
       </View>
     </BaseScreen>

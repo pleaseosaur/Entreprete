@@ -47,9 +47,12 @@ const style = StyleSheet.create({
     marginTop: 20,
     marginBottom: 10,
     paddingBottom: '5%',
+    flexDirection: 'row',
+    justifyContent: 'center'
   },
   submitButton: {
-    backgroundColor: palette.dark_purple
+    backgroundColor: palette.dark_purple,
+    paddingHorizontal: 1
   }
 });
 

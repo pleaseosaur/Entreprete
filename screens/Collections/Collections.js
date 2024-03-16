@@ -23,7 +23,7 @@ const Collections = ({navigation}) => {
   };
 
   const addCollection = () => {
-    navigation.navigate('EditCollection');
+    navigation.navigate('EditCollection', {newCollection: true});
   };
 
   const handleSearch = async (text) => {
