@@ -27,7 +27,7 @@ const MealPlans = ({navigation, mealPlanName}) => {
 
   const handleSearch = async text => {
     if (text === '') {
-      setPlans(testData.mealPlans);
+      setPlans(testData.mealplans);
       return;
     }
     const searchResult = await MealPlanSearch(text);
