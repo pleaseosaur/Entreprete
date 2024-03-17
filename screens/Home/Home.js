@@ -19,7 +19,7 @@ const Home = ({navigation}) => {
   const [searchResult, setSearchResult] = useState(null);
 
   const navigateToRecipeBook = () => {
-    navigation.navigate('RecipeBook', {isCollection: false});
+    navigation.navigate('RecipeBook');
   };
   const navigateToCollections = () => {
     navigation.navigate('Collections');

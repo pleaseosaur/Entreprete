@@ -25,7 +25,7 @@ const style = StyleSheet.create({
   },
   textEntryContainer: {
     paddingVertical: '2%',
-    marginBottom: 25
+    // marginBottom: 25
   },
   titleInput: {
     flexDirection: 'row',
@@ -35,6 +35,7 @@ const style = StyleSheet.create({
     borderColor: 'gray',
     borderRadius: 5,
     paddingHorizontal: 10,
+    marginBottom: 25
   },
   input: {
     flex: 1,

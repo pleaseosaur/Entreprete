@@ -1,53 +1,49 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {View, ScrollView, Text, TextInput, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import {View, ScrollView, Text, TextInput, TouchableWithoutFeedback} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
 import ListItem from '../../components/ListItem/ListItem';
 import {PillButton} from '../../components/Button/Button';
 import {RadioIconChecked, RadioIconUnchecked} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
-import testData from '../../mockServer/db.json';
 import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
 import { HeaderText } from '../../components/Text';
 import palette from '../../styles/Common.styles';
-import {CreateCollection, UpdateCollection} from '../../mockServer/functionality/crudFunctions';
+import {CreateCollection, UpdateCollection, GetRecipes} from '../../mockServer/functionality/crudFunctions';
 
 const EditCollection = ({navigation, route}) => {
-    const collectionId = route.params?.collectionId;
-    const recipesIds = route.params?.recipesIds;
+    const collection = route.params?.collection;
     const newCollection = (route.params?.newCollection == true) ? true : false; //set to false to edit an existing collection
-    const pageTitle = newCollection ? "Create Collection" : route.params?.pageTitle;
-    let originalRecipes = [];
-    const [collectionName, setCollectionName] = useState((route.params?.newCollection == true) ? '' : route.params?.collectionTitle);
+    const [collectionName, setCollectionName] = useState('');
     const [collectionRecipes, setCollectionRecipes] = useState([]);
-
-    if (recipesIds) {
-        originalRecipes = testData.recipes.filter(recipe =>
-            recipesIds.includes(recipe.id),
-        );
-    } else {
-        originalRecipes = testData.recipes;
-    }
-
     const [recipes, setRecipes] = useState([]);
 
+    /*load all recipes when page is rendered*/
     useEffect(() => {
-        setRecipes(testData.recipes);
-
         if(!newCollection) {
-            setCollectionRecipes(recipesIds);
-        } else {
-            setCollectionRecipes([]);
+            setCollectionRecipes(collection.recipes);
+            setCollectionName(collection.name);
         }
-    }, [recipesIds]);
+        loadRecipes();
+    }, [collection]);
+
+    const loadRecipes = async () => {
+        try {
+            const result = await GetRecipes();
+            setRecipes(result);
+        } catch(error) {
+            console.log(error);
+        }
+    };
 
     const handleSearch = async (text) => {
         if (text === '') {
-            setRecipes(originalRecipes);
+            loadRecipes();
             return;
+        } else {
+            const searchResult = await RecipeSearch(text);
+            setRecipes(searchResult);
         }
-        const searchResult = await RecipeSearch(text);
-        setRecipes(searchResult);
     };
 
     const goBack = () => {
@@ -73,14 +69,14 @@ const EditCollection = ({navigation, route}) => {
         try {
             const result = newCollection ?
                 await CreateCollection(collectionName, collectionRecipes)
-                : await UpdateCollection(collectionName, collectionRecipes, collectionId);
+                : await UpdateCollection(collectionName, collectionRecipes, collection.id);
 
             //reset states
             setCollectionName('');
             setCollectionRecipes([]);
 
             //navigate to new collection page
-            navigation.navigate('RecipeBook', {recipesIds: result.recipes, isCollection: true, pageTitle: result.name, collectionId: result.id});
+            navigation.replace('CollectionPage', {collection: result});
         }
         catch (error) {
             console.log(error);
@@ -121,7 +117,7 @@ const EditCollection = ({navigation, route}) => {
 
     return (
         <BaseScreen
-            title={pageTitle}
+            title={newCollection ? 'Create Collection' : collection.name}
             canEdit={false}
             canGoBack={true}
             goBack={goBack}>

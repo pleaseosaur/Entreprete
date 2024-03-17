@@ -6,6 +6,7 @@ import CalendarScreen from "../screens/Calendar/Calendar";
 import RecipePage from '../screens/RecipePage/RecipePage';
 import MealPlans from '../screens/MealPlans/MealPlans';
 import EditCollection from '../screens/EditCollection/EditCollection';
+import CollectionPage from '../screens/CollectionPage/CollectionPage';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,7 @@ const MainNavigation = () => {
             <Stack.Screen name={'RecipePage'} component={RecipePage} />
             <Stack.Screen name={'MealPlan'} component={MealPlans} />
             <Stack.Screen name={'EditCollection'} component={EditCollection} />
+            <Stack.Screen name={'CollectionPage'} component={CollectionPage} />
         </Stack.Navigator>
     );
 };

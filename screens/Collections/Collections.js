@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, ScrollView} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
 import {SquareButton} from '../../components/Button/Button';
@@ -7,16 +7,29 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import ListItem from '../../components/ListItem/ListItem';
 import testData from '../../mockServer/db.json';
-import { DeleteCollection } from '../../mockServer/functionality/crudFunctions';
+import { DeleteCollection, GetCollections } from '../../mockServer/functionality/crudFunctions';
 
 const Collections = ({navigation}) => {
-  const [collections, setCollections] = useState(testData.collections);
+  const [collections, setCollections] = useState([]);
+
+  useEffect(() => {
+    loadCollections();
+  }, []);
+
+  const loadCollections = async () => {
+    try {
+      const result = await GetCollections();
+      setCollections(result);
+    } catch(error) {
+      console.log(error);
+    }
+  };
 
   const goBack = () => {
     navigation.goBack();
   };
-  const navigateToCollection = (recipes, name, id) => {
-    navigation.navigate('RecipeBook', {recipesIds: recipes, isCollection: true, pageTitle: name, collectionId: id});
+  const navigateToCollection = (collection) => {
+    navigation.navigate('CollectionPage', {collection: collection});
   };
 
   const goHome = () => {
@@ -64,7 +77,8 @@ const Collections = ({navigation}) => {
                     name={collection.name}
                     recipe={collection}
                     key={index}
-                    onPress={() => navigateToCollection(collection.recipes, collection.name, collection.id)}
+                    // onPress={() => navigateToCollection(collection.recipes, collection.name, collection.id)}
+                    onPress={() => navigateToCollection(collection)}
                     swipeHandler={() => deleteCollection(index, collection.id)}
                 />
             );
