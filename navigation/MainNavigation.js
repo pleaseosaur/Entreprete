@@ -7,6 +7,7 @@ import RecipePage from '../screens/RecipePage/RecipePage';
 import MealPlans from '../screens/MealPlans/MealPlans';
 import EditCollection from '../screens/EditCollection/EditCollection';
 import CollectionPage from '../screens/CollectionPage/CollectionPage';
+import MealPlanPage from '../screens/MealPlanPage/MealPlanPage';
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ const MainNavigation = () => {
             <Stack.Screen name={'MealPlan'} component={MealPlans} />
             <Stack.Screen name={'EditCollection'} component={EditCollection} />
             <Stack.Screen name={'CollectionPage'} component={CollectionPage} />
+            <Stack.Screen name={'MealPlanPage'} component={MealPlanPage} />
         </Stack.Navigator>
     );
 };
