@@ -1,5 +1,11 @@
 import React, {useState} from 'react';
-import {SafeAreaView, View, Image, KeyboardAvoidingView, StatusBar} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Image,
+  KeyboardAvoidingView,
+  StatusBar,
+} from 'react-native';
 import {HomeTitleText} from '../../components/Text';
 import {PillButton} from '../../components/Button/Button';
 import {
@@ -17,6 +23,7 @@ import palette from '../../styles/Common.styles';
 
 const Home = ({navigation}) => {
   const [searchResult, setSearchResult] = useState(null);
+  const [isFocused, setIsFocused] = useState(false);
 
   const navigateToRecipeBook = () => {
     navigation.navigate('RecipeBook');
@@ -31,14 +38,17 @@ const Home = ({navigation}) => {
     navigation.navigate('MealPlan');
   };
 
-  const handleSearch = async (userInput) => {
+  const handleSearch = async userInput => {
     const x = await RecipeSearch(userInput);
     setSearchResult(x);
+    navigation.navigate('RecipeBook', {searchResult: x});
   };
 
   return (
     <SafeAreaView style={style.homeContainer}>
-      <StatusBar backgroundColor={palette.white} barStyle={"dark-content"}></StatusBar>
+      <StatusBar
+        backgroundColor={palette.white}
+        barStyle={'dark-content'}></StatusBar>
       <KeyboardAvoidingView behavior="padding" style={{flex: 1}}>
         {/* Home Page Title */}
         <View style={style.homeTitleContainer}>
@@ -49,36 +59,42 @@ const Home = ({navigation}) => {
           <Image source={require('../../assets/icon.png')} />
         </View>
         {/* Home Page Navigation */}
-        <View style={style.homeNavigationContainer}>
-          <View>
-            <PillButton
-              handler={navigateToRecipeBook}
-              icon={<BookOpened />}
-              text={' Recipe Book'}></PillButton>
+        {!isFocused ? (
+          <View style={style.homeNavigationContainer}>
+            <View>
+              <PillButton
+                handler={navigateToRecipeBook}
+                icon={<BookOpened />}
+                text={' Recipe Book'}></PillButton>
+            </View>
+
+            <View>
+              <PillButton
+                handler={navigateToCollections}
+                icon={<DoubleSoup />}
+                text={'  Collections'}></PillButton>
+            </View>
+            <View>
+              <PillButton
+                handler={navigateToCalendar}
+                icon={<Calendar />}
+                text={'    Calendar'}></PillButton>
+            </View>
+            <View>
+              <PillButton
+                handler={navigateToMealPlan}
+                icon={<ClipBoardList />}
+                text={' Meal Plans'}></PillButton>
+            </View>
           </View>
-          <View>
-            <PillButton
-              handler={navigateToCollections}
-              icon={<DoubleSoup />}
-              text={'  Collections'}></PillButton>
-          </View>
-          <View>
-            <PillButton handler={navigateToCalendar} icon={<Calendar />} text={'    Calendar'}></PillButton>
-          </View>
-          <View>
-            <PillButton
-              handler={navigateToMealPlan}
-              icon={<ClipBoardList />}
-              text={' Meal Plans'}></PillButton>
-          </View>
-        </View>
+        ) : null}
         {/* <View>
           <SquareButton icon={<PlusCircle />}></SquareButton>
         </View> */}
         <AddButton></AddButton>
         {/* Search bar */}
         <View>
-          <SearchBar handleSearch={handleSearch}/>
+          <SearchBar handleSearch={handleSearch} handleFocused={setIsFocused} />
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>

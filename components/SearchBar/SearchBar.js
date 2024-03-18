@@ -4,13 +4,13 @@ import {
   View,
   TouchableWithoutFeedback,
   TextInput,
-    KeyboardAvoidingView,
-    Platform,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import {Search} from '../Icons/Icons';
 import styles from './style';
 
-const SearchBar = ({handleSearch, placeholderText, test}) => {
+const SearchBar = ({handleSearch, placeholderText, handleFocused}) => {
   const [search, setSearch] = useState('');
   const [keyboardType, setKeyboardType] = useState('default');
 
@@ -20,7 +20,13 @@ const SearchBar = ({handleSearch, placeholderText, test}) => {
         <TextInput
           style={styles.input}
           value={search}
-          placeholder={placeholderText || "Search for recipes"}
+          onFocus={() => {
+            handleFocused(true);
+          }}
+          onBlur={() => {
+            handleFocused(false);
+          }}
+          placeholder={placeholderText || 'Search for recipes'}
           keyboardType="default"
           onChangeText={text => {
             setSearch(text);

@@ -7,6 +7,7 @@ const style = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     marginHorizontal: '5%',
+    marginVertical: 0,
   },
   itemTitle: {
     color: '#48474B',
@@ -41,6 +42,7 @@ const style = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     marginHorizontal: '5%',
+    justifyContent: 'flex-start',
   },
   instructions: {
     margin: 5,
@@ -51,8 +53,27 @@ const style = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     marginVertical: 10,
+  },
+  textInput: {
+    borderColor: palette.med_grey,
+    opacity: 0.8,
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '100%',
+    fontSize: 16,
+    padding: 5,
+  },
+  instructionsTextInput: {
+    borderColor: palette.med_grey,
+    opacity: 0.8,
+    borderWidth: 1,
+    borderRadius: 5,
+    width: '100%',
+    fontSize: 16,
+    margin: 5,
+    padding: 5,
   },
 });
 
