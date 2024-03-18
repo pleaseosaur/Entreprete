@@ -518,13 +518,13 @@
       "length": 7,
       "time": "days",
       "recipes": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
+        {"day": 1, "recipes": [1, 2]},
+        {"day": 2, "recipes": [2, 4, 6]},
+        {"day": 3, "recipes": [3]},
+        {"day": 4, "recipes": [4, 1, 2]},
+        {"day": 5, "recipes": [5, 5, 5]},
+        {"day": 6, "recipes": [6, 2]},
+        {"day": 7, "recipes": [7, 4,2]}
       ]
     },
     {
@@ -533,9 +533,9 @@
       "length": 3,
       "time": "days",
       "recipes": [
-        8,
-        9,
-        1
+        {"day": 1, "recipes": [8, 2]},
+        {"day": 2, "recipes": [9, 3]},
+        {"day": 3, "recipes": [1, 2]}
       ]
     }
   ],

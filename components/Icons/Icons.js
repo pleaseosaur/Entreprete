@@ -80,7 +80,7 @@ const Search = props => (
     </Svg>
 );
 
-const PlusCircle = props => (
+const PlusCircle = ({color, ...props}) => (
     <Svg
         xmlns="http://www.w3.org/2000/svg"
         width={24}
@@ -88,7 +88,7 @@ const PlusCircle = props => (
         fill="none"
         {...props}>
         <Path
-            stroke="#FDF8EF"
+            stroke={color || "#FDF8EF"}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
@@ -97,7 +97,7 @@ const PlusCircle = props => (
     </Svg>
 );
 
-const MinusCircle = props => (
+const MinusCircle = ({color, ...props}) => (
     <Svg
         xmlns="http://www.w3.org/2000/svg"
         width={24}
@@ -105,7 +105,7 @@ const MinusCircle = props => (
         fill="none"
         {...props}>
         <Path
-            stroke="#FDF8EF"
+            stroke={color || "#FDF8EF"}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}

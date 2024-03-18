@@ -7,7 +7,7 @@ import TestImage from '../../assets/testAssets/anh-nguyen-unsplash.jpg'
 import palette from "../../styles/Common.styles";
 import styles from "./style";
 
-const ListItem = ({navigation, img, name, rightIcon, style, onPress, swipeIcon, swipeHandler, ...rest}) => {
+const ListItem = ({navigation, img, name, rightIcon, style, onPress, swipeIcon, swipeHandler, noImg, ...rest}) => {
     const defaultImg = TestImage;
     const defaultIcon = <Linear color={palette.dark_grey} width={35} height={40}/>;
     const defaultSwipeIcon = <Trash color={palette.cream}/>;
@@ -39,7 +39,7 @@ const ListItem = ({navigation, img, name, rightIcon, style, onPress, swipeIcon, 
             <TouchableWithoutFeedback onPress={onPress}>
                 <View style={[styles.container, style]}>
                     <View style={[styles.subContainer]}>
-                        <Image style={[styles.img]} source={img ? img : defaultImg}></Image>
+                        {!noImg ? (<Image style={[styles.img]} source={img ? img : defaultImg}></Image>) : null}
                     </View>
                     <HeaderText style={{flex: 1, paddingLeft: 25, margin: 1}} adjustsFontSizeToFit={true}>{name}</HeaderText>
                     <View style={[styles.iconContainer]}>{rightIcon ? rightIcon : defaultIcon}</View>

@@ -22,7 +22,8 @@ const MealPlans = ({navigation, mealPlanName}) => {
   };
 
   const selectMealPlan = plan => {
-    navigation.navigate('MealPlan', {mealPlan: plan});
+    // navigation.navigate('MealPlan', {mealPlan: plan});
+    navigation.navigate('MealPlanPage', {mealPlan: plan});
   };
 
   const handleSearch = async text => {
