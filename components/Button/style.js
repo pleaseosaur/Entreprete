@@ -34,6 +34,9 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  focusStyle: {
+    backgroundColor: palette.light_purple
+  }
 });
 
 export default style;

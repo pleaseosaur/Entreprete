@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Animated, View, Image, TouchableWithoutFeedback} from "react-native";
+import { Animated, View, Image, TouchableWithoutFeedback, TouchableOpacity} from "react-native";
 import { RectButton, Swipeable } from 'react-native-gesture-handler';
 import { Linear, Trash } from "../Icons/Icons";
 import { HeaderText } from "../Text";
@@ -36,7 +36,7 @@ const ListItem = ({navigation, img, name, rightIcon, style, onPress, swipeIcon, 
 
     return (
         <Swipeable renderRightActions={renderRightActions} ref={ref} {...rest}>
-            <TouchableWithoutFeedback onPress={onPress}>
+            <TouchableOpacity onPress={onPress}>
                 <View style={[styles.container, style]}>
                     <View style={[styles.subContainer]}>
                         {!noImg ? (<Image style={[styles.img]} source={img ? img : defaultImg}></Image>) : null}
@@ -44,7 +44,7 @@ const ListItem = ({navigation, img, name, rightIcon, style, onPress, swipeIcon, 
                     <HeaderText style={{flex: 1, paddingLeft: 25, margin: 1}} adjustsFontSizeToFit={true}>{name}</HeaderText>
                     <View style={[styles.iconContainer]}>{rightIcon ? rightIcon : defaultIcon}</View>
                 </View>
-            </TouchableWithoutFeedback>
+            </TouchableOpacity>
         </Swipeable>
     );
 };

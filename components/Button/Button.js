@@ -1,5 +1,6 @@
-import React from 'react';
-import {View, Text, TouchableWithoutFeedback} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TouchableWithoutFeedback, TouchableOpacity} from 'react-native';
+import palette from '../../styles/Common.styles';
 import {ButtonText} from '../Text';
 import styles from './style';
 
@@ -28,9 +29,9 @@ const RoundedButton = () => {
 const CircleButton = ({icon, handler, style, ...rest}) => {
   return (
     <View style={[styles.circleButton, style]} {...rest}>
-      <TouchableWithoutFeedback onPress={handler}>
+      <TouchableOpacity onPress={handler}>
         <View>{icon}</View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -38,9 +39,9 @@ const CircleButton = ({icon, handler, style, ...rest}) => {
 const SquareButton = ({icon, handler, style, ...rest}) => {
   return (
     <View style={[styles.squareButton, style]} {...rest}>
-      <TouchableWithoutFeedback onPress={handler}>
+      <TouchableOpacity onPress={handler}>
         <View>{icon}</View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -48,14 +49,14 @@ const SquareButton = ({icon, handler, style, ...rest}) => {
 const PillButton = ({text, handler, style, icon, ...rest}) => {
   return (
     <View style={[styles.pillButton, style]} {...rest}>
-      <TouchableWithoutFeedback onPress={handler}>
+      <TouchableOpacity onPress={handler}>
         <View style={styles.subContainer}>
           {icon}
           <ButtonText style={[style]}>
             {text}
           </ButtonText>
         </View>
-      </TouchableWithoutFeedback>
+      </TouchableOpacity>
     </View>
   );
 };

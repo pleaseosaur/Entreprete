@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     overlayBackdrop: {
         // backgroundColor: 'rgba(253, 248, 239, 0.8)',
-        backgroundColor: 'rgba(72, 71, 75, 0.7)'
+        backgroundColor: 'rgba(72, 71, 75, 0.7)',
     },
     buffer: {
         height: 50,

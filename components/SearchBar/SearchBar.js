@@ -21,10 +21,14 @@ const SearchBar = ({handleSearch, placeholderText, handleFocused}) => {
           style={styles.input}
           value={search}
           onFocus={() => {
-            handleFocused(true);
+            if(handleFocused) {
+              handleFocused(true);
+            }
           }}
           onBlur={() => {
-            handleFocused(false);
+            if(handleFocused) {
+              handleFocused(false);
+            }
           }}
           placeholder={placeholderText || 'Search for recipes'}
           keyboardType="default"
