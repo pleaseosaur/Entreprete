@@ -6,53 +6,51 @@ import {SquareButton} from '../../components/Button/Button';
 import {PlusCircle, Home} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
-import testData from '../../mockServer/db.json';
-import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
-import { DeleteRecipe } from '../../mockServer/functionality/crudFunctions';
+import {RecipeSearch} from '../../lib/api/search';
+import {GetRecipes, DeleteRecipe} from '../../lib/api/crud';
 
 const RecipeBook = ({navigation, route}) => {
   const collectionId = route.params?.collectionId;
   const recipesIds = route.params?.recipesIds;
   const isCollection = route.params?.isCollection || false; //set to true to search within the collection only
   const pageTitle = route.params?.pageTitle || 'Recipe Book';
-  let originalRecipes = [];
 
-  if (recipesIds) {
-    originalRecipes = testData.recipes.filter(recipe =>
-        recipesIds.includes(recipe.id),
-    );
-  } else {
-    originalRecipes = testData.recipes;
-  }
-
+  const [allRecipes, setAllRecipes] = useState([]);
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    if (recipesIds === undefined) {
-      setRecipes(testData.recipes);
-      return;
-    }
-    if (recipesIds && recipesIds.length > 0) {
-      // Check if recipesIds exists and has length
-      originalRecipes = testData.recipes.filter(recipe =>
-          recipesIds.includes(recipe.id),
-      );
-      setRecipes(originalRecipes);
-    } else {
-      // If no recipe IDs are provided, set all recipes
-      setRecipes([]);
-      originalRecipes = [];
-    }
+    loadRecipes();
   }, [recipesIds]);
 
-  const handleSearch = async (text) => {
+  const loadRecipes = async () => {
+    try {
+      const result = await GetRecipes();
+      setAllRecipes(result);
+
+      if (recipesIds === undefined) {
+        setRecipes(result);
+      } else if (recipesIds.length > 0) {
+        setRecipes(result.filter(recipe => recipesIds.includes(recipe.id)));
+      } else {
+        setRecipes([]);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSearch = async text => {
+    const scopedRecipes = recipesIds
+      ? allRecipes.filter(recipe => recipesIds.includes(recipe.id))
+      : allRecipes;
+
     if (text === '') {
-      setRecipes(originalRecipes);
+      setRecipes(scopedRecipes);
       return;
     }
 
-    if(isCollection) {
-      const filteredRecipes = originalRecipes.filter(recipe =>
+    if (isCollection) {
+      const filteredRecipes = scopedRecipes.filter(recipe =>
           recipe.name.toLowerCase().includes(text.toLowerCase()),
       );
       setRecipes(filteredRecipes);

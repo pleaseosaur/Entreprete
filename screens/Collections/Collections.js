@@ -6,10 +6,10 @@ import {PlusCircle, Home} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import ListItem from '../../components/ListItem/ListItem';
-import testData from '../../mockServer/db.json';
-import { DeleteCollection, GetCollections } from '../../mockServer/functionality/crudFunctions';
+import { DeleteCollection, GetCollections } from '../../lib/api/crud';
 
 const Collections = ({navigation}) => {
+  const [allCollections, setAllCollections] = useState([]);
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ const Collections = ({navigation}) => {
   const loadCollections = async () => {
     try {
       const result = await GetCollections();
+      setAllCollections(result);
       setCollections(result);
     } catch(error) {
       console.log(error);
@@ -42,20 +43,18 @@ const Collections = ({navigation}) => {
 
   const handleSearch = async (text) => {
     if (text === '') {
-      setCollections(testData.collections);
+      setCollections(allCollections);
       return;
     }
-    const filteredCollections = testData.collections.filter(collection =>
+    const filteredCollections = allCollections.filter(collection =>
         collection.name.toLowerCase().includes(text.toLowerCase()),
     );
     setCollections(filteredCollections);
   };
 
   const deleteCollection = async (index, id) => {
-    setCollections(prev => {
-      const newPlans = prev.filter((_, i) => i !== index);
-      return newPlans;
-    });
+    setCollections(prev => prev.filter((_, i) => i !== index));
+    setAllCollections(prev => prev.filter(collection => collection.id !== id));
 
     try {
       const result = await DeleteCollection(id);

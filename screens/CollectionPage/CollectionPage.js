@@ -6,8 +6,8 @@ import {SquareButton} from '../../components/Button/Button';
 import {PlusCircle, Home} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
-import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
-import { GetRecipes, UpdateCollection } from '../../mockServer/functionality/crudFunctions';
+import {RecipeSearch} from '../../lib/api/search';
+import { GetRecipes, UpdateCollection } from '../../lib/api/crud';
 
 /**This component displays a single collection**/
 

@@ -7,7 +7,7 @@ import style from './style';
 import {
   GetRecipeByID,
   UpdateRecipe,
-} from '../../mockServer/functionality/crudFunctions';
+} from '../../lib/api/crud';
 import palette from '../../styles/Common.styles';
 
 const RecipePage = ({navigation, route}) => {
