@@ -12,10 +12,10 @@
 
 **Current State:**
 - React Native (v0.73.4) prototype — functional but being abandoned in favor of native
-- Mock backend using `json-server` pointing at `http://10.0.2.2:3000` (Android emulator localhost)
-- No real database, no auth, no user accounts
+- Live backend: Supabase-hosted Postgres, via `@supabase/supabase-js` (`lib/supabaseClient.js`, `lib/api/*`) — replaces the old `json-server` mock entirely
+- No auth, no user accounts (RLS policies are wide open until auth ships — see `supabase/schema.sql`)
 - All 9 core screens are built and navigable
-- CRUD and search functions exist but several screens still pull directly from local `db.json`
+- CRUD and search functions all go through `lib/api/*`; no screen reads local mock data anymore
 - No recipe creation screen (TODO stub)
 - No meal plan creation screen (navigates to unregistered `AddMealPlan` route — would crash)
 - Calendar screen is a non-functional stub
@@ -303,8 +303,8 @@ data class Event(
 
 ### Immediate Next Session
 - [ ] **Full schema stress-test** — walk every described feature through the schema and verify nothing is awkward to model before standing up the database
-- [ ] **Stand up Supabase instance** — run schema, verify REST API shape matches expected KMP models
-- [ ] **Environment config approach** — how API URLs and keys are managed across dev/staging/prod in KMP
+- [x] **Stand up Supabase instance** — `supabase/schema.sql` + `supabase/seed.sql` added; RN app now talks to Supabase via `lib/api/*`. Note: this schema only covers the RN app's current entities (recipes/collections/meal plans/events), not the full social schema below — that still needs the KMP rewrite's data layer.
+- [ ] **Environment config approach** — how API URLs and keys are managed across dev/staging/prod in KMP (RN app uses `.env` + `react-native-dotenv` for now, see README)
 
 ### Near-term
 - [ ] **Auth strategy** — Supabase Auth with email/password + OAuth (Google, Apple) is the assumed path but not finalized
@@ -326,17 +326,15 @@ data class Event(
 **Screens:** Home, RecipeBook, RecipePage, Collections, CollectionPage, EditCollection, MealPlans, MealPlanPage, Calendar
 
 **What works:**
-- Collections loads from API and saves back correctly
-- Recipe editing saves via API
+- Collections, Recipe Book, and Meal Plans all load from the live Supabase database
+- Recipe, collection, and meal plan editing saves via `lib/api/*`
 - Navigation between all screens
 
 **Known gaps in RN prototype (for reference, not to fix):**
-- RecipeBook and MealPlans initialize from local `db.json` instead of API
 - Calendar is a non-functional stub
 - Recipe creation is a TODO stub
 - Meal plan creation navigates to unregistered route
-- All API URLs hardcoded to `http://10.0.2.2:3000` (Android emulator only)
-- No auth, no user accounts, all users share same data
+- No auth, no user accounts, all users share same data (RLS is open by design until auth ships)
 
 ---
 
@@ -345,3 +343,4 @@ data class Event(
 | Date | Summary |
 |---|---|
 | Session 1 | Full project audit. Decided on KMP + SwiftUI + Compose + Supabase/PostgreSQL stack. Designed schema principles. Established write-through cache pattern for social features. Confirmed single-table recipe visibility approach. Identified full schema design as next task. |
+| Session 2 | Stood up a live Supabase/Postgres database for the current RN build. Added `supabase/schema.sql` (relational tables for recipes/ingredients/instructions/collections/meal plans/events, RLS enabled but open pending auth) and `supabase/seed.sql` (ported from the old mock `db.json`). Replaced `mockServer/functionality/*` (axios → `json-server`) with `lib/api/*` (axios → Supabase), preserving the JSON shapes screens already expect. Fixed RecipeBook/Collections/MealPlans to load from the live API instead of a bundled `db.json`. Removed `mockServer/` and the `json-server` dependency entirely. |

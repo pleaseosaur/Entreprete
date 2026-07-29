@@ -7,7 +7,6 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "server": "json-server mockServer/db.json --routes mockServer/routes.json --host 127.0.0.1",
     "test": "jest"
   },
   "jest": {
@@ -21,7 +20,7 @@
     "@react-native-masked-view/masked-view": "^0.3.1",
     "@react-navigation/native": "^6.1.10",
     "@react-navigation/stack": "^6.3.21",
-    "axios": "^1.6.7",
+    "@supabase/supabase-js": "^2.45.4",
     "node": "^18.0.0",
     "punycode": "^2.3.1",
     "react": "18.2.0",
@@ -33,6 +32,7 @@
     "react-native-safe-area-context": "^4.9.0",
     "react-native-screens": "^3.29.0",
     "react-native-svg": "^15.0.0",
+    "react-native-url-polyfill": "^2.0.0",
     "react-native-vector-icons": "^10.0.3"
   },
   "devDependencies": {
@@ -48,8 +48,8 @@
     "babel-jest": "^29.6.3",
     "eslint": "^8.19.0",
     "jest": "^29.6.3",
-    "json-server": "^0.17.4",
     "prettier": "2.8.8",
+    "react-native-dotenv": "^3.4.11",
     "react-test-renderer": "18.2.0",
     "typescript": "5.0.4"
   },

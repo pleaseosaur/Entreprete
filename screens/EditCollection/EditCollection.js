@@ -6,10 +6,10 @@ import {PillButton} from '../../components/Button/Button';
 import {RadioIconChecked, RadioIconUnchecked} from '../../components/Icons/Icons';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
-import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
+import {RecipeSearch} from '../../lib/api/search';
 import { HeaderText } from '../../components/Text';
 import palette from '../../styles/Common.styles';
-import {CreateCollection, UpdateCollection, GetRecipes} from '../../mockServer/functionality/crudFunctions';
+import {CreateCollection, UpdateCollection, GetRecipes} from '../../lib/api/crud';
 
 const EditCollection = ({navigation, route}) => {
     const collection = route.params?.collection;

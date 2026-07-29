@@ -39,6 +39,9 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+# environment
+.env
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
@@ -63,5 +66,3 @@ yarn-error.log
 
 # testing
 /coverage
-
-/mockServer/db.json

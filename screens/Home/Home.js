@@ -18,7 +18,7 @@ import {
 import SearchBar from '../../components/SearchBar/SearchBar';
 import style from './style';
 import AddButton from '../../components/AddButton/AddButton';
-import {RecipeSearch} from '../../mockServer/functionality/searchFunctions';
+import {RecipeSearch} from '../../lib/api/search';
 import palette from '../../styles/Common.styles';
 
 const Home = ({navigation}) => {

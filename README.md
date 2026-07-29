@@ -7,6 +7,21 @@ Cooking and planning meals should be fun and
 easy, and Entreprête is designed to bring 
 simplicity and joy to the kitchen.
 
+## Database Setup
+
+The app is backed by a live [Supabase](https://supabase.com) (hosted Postgres) project.
+
+1. Create a Supabase project (or use an existing one).
+2. In the Supabase SQL editor, run `supabase/schema.sql`, then `supabase/seed.sql` (optional — loads sample recipes/collections/meal plans).
+3. Copy `.env.example` to `.env` and fill in your project's URL and anon/public API key (Project Settings → API):
+   ```
+   SUPABASE_URL=https://your-project-ref.supabase.co
+   SUPABASE_ANON_KEY=your-anon-public-api-key
+   ```
+4. Restart the Metro bundler (`npm start -- --reset-cache`) after editing `.env` so the new values are picked up.
+
+The app has no authentication yet, so Row Level Security policies are intentionally left open (see the comment at the top of `supabase/schema.sql`) — tighten these before this ever holds real user data.
+
 ## Features
 *** 
 ### Current Features

@@ -1,17 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, ScrollView} from 'react-native';
 import BaseScreen from '../BaseScreen/BaseScreen';
 import {SquareButton} from '../../components/Button/Button';
 import {PlusCircle, Home} from '../../components/Icons/Icons';
 import ListItem from '../../components/ListItem/ListItem';
 import style from './style';
-import testData from '../../mockServer/db.json';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import {MealPlanSearch} from '../../mockServer/functionality/searchFunctions';
+import {MealPlanSearch} from '../../lib/api/search';
+import {GetMealPlans, DeleteMealPlan} from '../../lib/api/crud';
 import MealPlanItem from '../../components/MealPlanItem/MealPlanItem';
 
 const MealPlans = ({navigation, mealPlanName}) => {
-  const [plans, setPlans] = useState(testData.mealplans);
+  const [allPlans, setAllPlans] = useState([]);
+  const [plans, setPlans] = useState([]);
+
+  useEffect(() => {
+    loadMealPlans();
+  }, []);
+
+  const loadMealPlans = async () => {
+    try {
+      const result = await GetMealPlans();
+      setAllPlans(result);
+      setPlans(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const goBack = () => {
     navigation.goBack();
@@ -28,7 +43,7 @@ const MealPlans = ({navigation, mealPlanName}) => {
 
   const handleSearch = async text => {
     if (text === '') {
-      setPlans(testData.mealplans);
+      setPlans(allPlans);
       return;
     }
     const searchResult = await MealPlanSearch(text);
@@ -39,11 +54,15 @@ const MealPlans = ({navigation, mealPlanName}) => {
     navigation.navigate('AddMealPlan');
   };
 
-  const deletePlan = index => {
-    setPlans(prev => {
-      const newPlans = prev.filter((_, i) => i !== index);
-      return newPlans;
-    });
+  const deletePlan = async (index, id) => {
+    setPlans(prev => prev.filter((_, i) => i !== index));
+    setAllPlans(prev => prev.filter(plan => plan.id !== id));
+
+    try {
+      await DeleteMealPlan(id);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -60,7 +79,7 @@ const MealPlans = ({navigation, mealPlanName}) => {
               id={plan.id}
               key={index}
               onPress={() => selectMealPlan(plan)}
-              swipeHandler={() => deletePlan(index)}
+              swipeHandler={() => deletePlan(index, plan.id)}
             />
           );
         })}
